@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GitHub on My New Hugo Site</title>
+    <title>GitHub on 332C</title>
     <link>https://foxusn.github.io/tags/github/</link>
-    <description>Recent content in GitHub on My New Hugo Site</description>
+    <description>Recent content in GitHub on 332C</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 19 Jun 2025 04:48:21 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jun 2025 05:04:58 +0800</lastBuildDate>
     <atom:link href="https://foxusn.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSH 笔记</title>

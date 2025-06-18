@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on 332C</title>
+    <link>https://foxusn.github.io/tags/blog/</link>
+    <description>Recent content in Blog on 332C</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 19 Jun 2025 05:04:58 +0800</lastBuildDate>
+    <atom:link href="https://foxusn.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 博客搭建和部署</title>
+      <link>https://foxusn.github.io/posts/hugo-deploy/</link>
+      <pubDate>Sun, 06 Apr 2025 22:04:04 +0800</pubDate>
+      <guid>https://foxusn.github.io/posts/hugo-deploy/</guid>
+      <description>GitHub Pages + GitHub Actions 自动部署 Hugo + PaperMod 博客</description>
+    </item>
+  </channel>
+</rss>

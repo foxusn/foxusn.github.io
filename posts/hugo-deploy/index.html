@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://foxusn.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://foxusn.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://foxusn.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://foxusn.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://foxusn.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://foxusn.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://foxusn.github.io/css/syntax.css' />
+    <title>Hugo 博客搭建和部署 - 332C</title>
+    
+    <link rel="icon" type="image/x-icon" href='/images/github-mark-white.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    
+
+    
+    <meta name="description"
+  content="GitHub Pages &#43; GitHub Actions 自动部署 Hugo &#43; PaperMod 博客" />
+<meta name="keywords"
+  content='Hugo, PaperMod, 博客搭建, 博客部署' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://foxusn.github.io/posts/hugo-deploy/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Hugo 博客搭建和部署 - 332C" />
+<meta name="twitter:description"
+  content="GitHub Pages &#43; GitHub Actions 自动部署 Hugo &#43; PaperMod 博客" />
+<meta name="twitter:site" content="https://foxusn.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://foxusn.github.io/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Hugo 博客搭建和部署 - 332C">
+<meta property="og:description"
+  content="GitHub Pages &#43; GitHub Actions 自动部署 Hugo &#43; PaperMod 博客" />
+<meta property="og:url" content="https://foxusn.github.io/posts/hugo-deploy/" />
+<meta property="og:site_name" content="Hugo 博客搭建和部署" />
+<meta property="og:image"
+  content="https://foxusn.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2025-04-06 22:04:04 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://foxusn.github.io/">
+        <img class="octicon" height="32" width="32" src="/images/github-mark-white.png">
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          
+          <form target="_blank" id="search-form" action="" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+            </label>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://foxusn.github.io/">
+        <img class="octicon octicon-mark-github v-align-middle" height="32" width="32" src="/images/github-mark-white.png">
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+
+  <div id="search-result" class="container-lg px-3 new-discussion-timeline" style="display: none;">
+</div>
+
+  
+<div class="application-main">
+  <div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://foxusn.github.io/">
+                  <img class=" avatar-user"
+                    src="/ghimg.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://foxusn.github.io/">foxusn</a>
+                  </span>
+                  <span class="path-divider">/</span>
+                  <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
+                    <a href="https://foxusn.github.io/posts/hugo-deploy/">Hugo 博客搭建和部署</a>
+                  </strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Sun, 06 Apr 2025 22:04:04 &#43;0800"
+                    class="no-wrap">
+                    Sun, 06 Apr 2025 22:04:04 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Thu, 19 Jun 2025 05:04:58 &#43;0800"
+                    class="no-wrap">
+                    Thu, 19 Jun 2025 05:04:58 &#43;0800</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      1552 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/blog">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Blog
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/hugo">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Hugo
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/papermod">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      PaperMod
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><p>之前一直用 Hexo 发博客，生成速度确实感人，最近研究了一下常见的几个静态网站生成器，最终选择了 Hugo，以下是 Hugo 博客搭建和通过 GitHub Pages + GitHub Actions （使用 Deploy key 而不是 PAT）实现自动部署的具体步骤</p>
+<h2 id="前置条件">前置条件</h2>
+<p>🔧 Git，GitHub 账户，VS Code</p>
+<h2 id="本地部署">本地部署</h2>
+<p>这里在 Fedora Linux 上做本地部署，其他操作系统上的步骤大同小异</p>
+<p>▶️ 首先使用内置的包管理器搜索 hugo 查看是否是最新版本（dnf 是 Fedora 内置的包管理器），是则通过<code>dnf install hugo</code>命令安装，否则到 <a href="https://github.com/gohugoio/hugo/releases">GitHub</a> 下载最新版本 hugo</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dnf info hugo <span style="color:#75715e"># 或者：dnf repoquery hugo</span>
+</span></span></code></pre></div><p>dnf 搜索的版本对比 GitHub 上的版本，GitHub 的版本更新，所以我在 <a href="https://github.com/gohugoio/hugo/releases">GitHub</a> 下载，又因为后面会通过 GitHub Pages 部署，所以选择文件名不带 “withdeploy” 的版本，通过命令解压：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar -xzvf hugo_extended_x.xxx.x_linux-amd64.tar.gz
+</span></span></code></pre></div><p>解压后把 <strong>hugo</strong> 这个文件移动到 <em><strong>/usr/local/bin</strong></em> 目录：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mv hugo /usr/local/bin
+</span></span></code></pre></div><p>查看 Hugo 版本：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo version
+</span></span></code></pre></div><p>创建、进入博客文件夹：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site hugo-blog <span style="color:#75715e"># 自己起一个文件夹名</span>
+</span></span><span style="display:flex;"><span>cd hugo-blog
+</span></span></code></pre></div><p>初始化仓库：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span></code></pre></div><p>通过 <code>touch .gitignore</code> 命令新建 .gitignore 文件，复制下面的内容添加进去（用来忽略不必要的文件和文件夹）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/public
+</span></span><span style="display:flex;"><span>resources/_gen/
+</span></span><span style="display:flex;"><span>.hugo_build.lock
+</span></span><span style="display:flex;"><span># Compiled Object files, Static and Dynamic libs (Shared Objects)
+</span></span><span style="display:flex;"><span>*.o
+</span></span><span style="display:flex;"><span>*.a
+</span></span><span style="display:flex;"><span>*.so
+</span></span><span style="display:flex;"><span># Folders
+</span></span><span style="display:flex;"><span>_obj
+</span></span><span style="display:flex;"><span>_test
+</span></span><span style="display:flex;"><span># Architecture specific extensions/prefixes
+</span></span><span style="display:flex;"><span>*.[568vq]
+</span></span><span style="display:flex;"><span>[568vq].out
+</span></span><span style="display:flex;"><span>*.cgo1.go
+</span></span><span style="display:flex;"><span>*.cgo2.c
+</span></span><span style="display:flex;"><span>_cgo_defun.c
+</span></span><span style="display:flex;"><span>_cgo_gotypes.go
+</span></span><span style="display:flex;"><span>_cgo_export.*
+</span></span><span style="display:flex;"><span>_testmain.go
+</span></span><span style="display:flex;"><span>*.exe
+</span></span><span style="display:flex;"><span>*.test
+</span></span><span style="display:flex;"><span>.DS_Store
+</span></span></code></pre></div><p>在 <a href="https://themes.gohugo.io/">Hugo Themes</a> 找自己喜欢的主题，以 <a href="https://github.com/adityatelange/hugo-PaperMod">PaperMod</a> 为例，它支持多种安装方式，这里通过 <strong>submodule</strong> 的方式安装：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># needed when you reclone your repo (submodules may not get cloned automatically)</span>
+</span></span><span style="display:flex;"><span>git submodule update --init --recursive
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># update</span>
+</span></span><span style="display:flex;"><span>git submodule update --remote --merge
+</span></span></code></pre></div><p>应用主题：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;theme = &#39;PaperMod&#39;&#34;</span> &gt;&gt; hugo.toml
+</span></span></code></pre></div><p>新建一篇文章：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new content ./content/posts/my-first-post.md
+</span></span></code></pre></div><p>启动本地服务器（新建的文章默认是草稿，<code>-D</code>参数表示构建草稿内容）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D 
+</span></span></code></pre></div><h2 id="部署到-github-pages">部署到 GitHub Pages</h2>
+<p>📦 创建一个 <strong>Public</strong> 仓库，仓库名为 <em><strong>&lt;username&gt;.github.io</strong></em>，创建的时候添加一个 <strong>README.md</strong> 文件（也可以创建好之后添加，总之不是空仓库就行，否则会影响后面的工作流），然后把本地博客目录的 <strong>hugo.toml</strong> 这个配置文件的 <strong>baseURL</strong> 这行后面的链接改为 <em><strong><a href="https://username.github.io/">https://username.github.io/</a></strong></em>（注意替换 username）</p>
+<p>📦 再创建一个 <strong>Private</strong> 仓库，用来保存博客源码，不需要添加任何文件，名字自己起</p>
+<p>🔑 生成一个 <strong>ed25519</strong> 类型的 SHH 密钥对，用于连接远程仓库：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t ed25519 -C <span style="color:#e6db74">&#34;your_email@example.com&#34;</span> -f ~/.ssh/github_ed25519 -N <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ~/.ssh 如果不存在会自动创建；-N 参数设置 passphrase 为空</span>
+</span></span></code></pre></div><p>把 SSH 私钥添加进 SSH agent：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>eval <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>ssh-agent -s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>        
+</span></span><span style="display:flex;"><span>ssh-add ~/.ssh/github_ed25519  
+</span></span></code></pre></div><p>➡️ 复制 <strong>.pub</strong> 的内容，来到 GitHub，点击头像，点 Settings &gt; SSH and GPG Keys &gt; New SSH key，填写 Title，Key type 保持默认 Authenticaiton Key，粘贴到 Key 的区域，点击Add SSH key</p>
+<p>然后在博客根目录下测试连接：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-add -l                     <span style="color:#75715e"># 检查本地 SSH key</span>
+</span></span><span style="display:flex;"><span>ssh -T git@github.com          <span style="color:#75715e"># 测试 SSH 连接</span>
+</span></span></code></pre></div><p>🔑 同样在 <strong>~/.ssh</strong> 再生成一个 <strong>ed25519</strong> 密钥对：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t ed25519 -C <span style="color:#e6db74">&#34;hugo-deploy-key&#34;</span> -f ~/.ssh/hugo_deploy_key -N <span style="color:#e6db74">&#34;&#34;</span>
+</span></span></code></pre></div><p>第二个生成之后不需要把私钥添加进 SSH agent</p>
+<p>➡️ 复制 <strong>.pub</strong> 的内容，到刚创建的 Public 仓库，点击 Settings &gt; Deploy keys &gt; Add deploy key，粘贴到 “Key” 下面的输入框，起一个 Title，比如：hugo-deploy-key，勾选“Allow write access”，最后点击“Add key”</p>
+<p>➡️ 复制私钥的内容（没有扩展名的文件），到到 Private 仓库的 Settings &gt; Secrets and variables &gt; Actions &gt; New repository secret，粘贴到 Secret 下面的输入框，起一个 Name，比如：HUGO_DEPLOY_SECRET，最后点击 Add secret</p>
+<blockquote>
+<p>⚠️ 私钥要复制包括头尾两行的全部内容，粘贴的时候**<strong>后面多加一个空行</strong>**</p></blockquote>
+<p>创建 GitHub Actions 工作流文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p .github/workflows
+</span></span><span style="display:flex;"><span>touch .github/workflows/hugo.yaml
+</span></span></code></pre></div><p>编辑 <strong>hugo.yaml</strong>，把下面内容粘贴进去（<strong>注意替换自己的信息</strong>）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy to Public Repo</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Set timezone</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set timezone</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          sudo timedatectl set-timezone Asia/Shanghai</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Checkout</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout private repo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">submodules</span>: <span style="color:#ae81ff">recursive</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#          fetch-depth: 0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># SSH</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup SSH</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">webfactory/ssh-agent@v0.9.1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ssh-private-key</span>: <span style="color:#ae81ff">${{ secrets.HUGO_DEPLOY_KEY }}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Set up Hugo</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Hugo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">hugo-version</span>: <span style="color:#e6db74">&#34;0.145.0&#34;</span> <span style="color:#75715e"># 填你的hugo版本</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Build</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build Hugo site</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">hugo</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Deploy to the public repo via SSH</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy to public repository</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          rm -rf deploy-repo
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git clone --single-branch --branch main git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git deploy-repo
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          cd deploy-repo
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          rm -rf *
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          cp -r ../public/* .
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git config user.email &#34;example@gmail.com&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git config user.name &#34;username&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git add .
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git commit -m &#34;Auto deploy Hugo site $(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git push origin main</span>
+</span></span></code></pre></div><p>配置用户名和邮箱：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 注意替换自己的信息</span>
+</span></span><span style="display:flex;"><span>git config user.email “example@gmail.com”
+</span></span><span style="display:flex;"><span>git config user.name <span style="color:#e6db74">&#34;username&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 默认使用main分支</span>
+</span></span><span style="display:flex;"><span>git config --global init.defaultBranch main
+</span></span></code></pre></div><p>关联 Private 仓库：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 查看配置</span>
+</span></span><span style="display:flex;"><span>git remote add origin git@github.com:username/hugo-source-code.git
+</span></span></code></pre></div><p>Add, Commit, Push 三步走：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;First commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push -u origin main
+</span></span></code></pre></div><p>最后到 Private 仓库的 Actions 界面看工作流是否 run 成功，成功之后在浏览器打开 <em>username.github.io</em> 即可查看博客页面 🔚</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://gohugo.io/">Hugo</a>， <a href="https://github.com/adityatelange/hugo-PaperMod">PaperMod</a></p>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://foxusn.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://foxusn.github.io/css/toc.css' />
+
+  
+</div>
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://foxusn.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+      <li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href="https://github.com/">GitHub, Inc.</a></li>
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+
+</body>
+
+<script type="application/javascript" src="https://foxusn.github.io/js/github-style.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+<script type="application/javascript" src='https://foxusn.github.io/js/search.js'></script>
+
+
+
+</html>
