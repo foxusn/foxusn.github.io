@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='http://localhost:1313/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='http://localhost:1313/css/frameworks.min.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/github.min.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/github-style.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/light.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/dark.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/syntax.css' />
+    <title>Fedora 安装中文输入法（Fcitx 5） - My New Hugo Site</title>
+    
+    <link rel="icon" type="image/x-icon" href='/images/github-mark-white.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    
+
+    
+    <meta name="description"
+  content="Fedora Linux (Workstation) 上安装 Fcitx 5 框架并配置中文输入法" />
+<meta name="keywords"
+  content='fcitx, fcitx5, 输入法' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="http://localhost:1313/posts/fcitx5/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Fedora 安装中文输入法（Fcitx 5） - My New Hugo Site" />
+<meta name="twitter:description"
+  content="Fedora Linux (Workstation) 上安装 Fcitx 5 框架并配置中文输入法" />
+<meta name="twitter:site" content="http://localhost:1313/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="http://localhost:1313/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Fedora 安装中文输入法（Fcitx 5） - My New Hugo Site">
+<meta property="og:description"
+  content="Fedora Linux (Workstation) 上安装 Fcitx 5 框架并配置中文输入法" />
+<meta property="og:url" content="http://localhost:1313/posts/fcitx5/" />
+<meta property="og:site_name" content="Fedora 安装中文输入法（Fcitx 5）" />
+<meta property="og:image"
+  content="http://localhost:1313/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2025-04-07 15:41:59 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="http://localhost:1313/">
+        <img class="octicon" height="32" width="32" src="/images/github-mark-white.png">
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          
+          <form target="_blank" id="search-form" action="" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+            </label>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="http://localhost:1313/">
+        <img class="octicon octicon-mark-github v-align-middle" height="32" width="32" src="/images/github-mark-white.png">
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+
+  <div id="search-result" class="container-lg px-3 new-discussion-timeline" style="display: none;">
+</div>
+
+  
+<div class="application-main">
+  <div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="http://localhost:1313/">
+                  <img class=" avatar-user"
+                    src="/ghimg.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="http://localhost:1313/">foxusn</a>
+                  </span>
+                  <span class="path-divider">/</span>
+                  <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
+                    <a href="http://localhost:1313/posts/fcitx5/">Fedora 安装中文输入法（Fcitx 5）</a>
+                  </strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Mon, 07 Apr 2025 15:41:59 &#43;0800"
+                    class="no-wrap">
+                    Mon, 07 Apr 2025 15:41:59 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Thu, 19 Jun 2025 03:25:50 &#43;0800"
+                    class="no-wrap">
+                    Thu, 19 Jun 2025 03:25:50 &#43;0800</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      500 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/fcitx">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Fcitx
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/ime">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      IME
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/linux">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Linux
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><p>不想折腾的直接使用系统自带的 IBus，添加一个智能拼音输入法，再安装一个 IBus Tweaker 扩展进行简单配置即可，缺点是词库不太行；ibus-rime 就没必要了，建议直接 Fcitx 5</p>
+<h2 id="安装-fcitx-5">安装 <a href="https://fcitx-im.org/wiki/Install_Fcitx_5/zh-cn">Fcitx 5</a></h2>
+<p>安装 Fcitx 5 主程序和一些相关的模块，参考 <a href="https://fedoraproject.org/wiki/I18N/Fcitx5">I18N/Fcitx5</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk fcitx5-autostart.noarch
+</span></span><span style="display:flex;"><span>sudo dnf remove <span style="color:#e6db74">&#34;fcitx5*&#34;</span>   <span style="color:#75715e"># 这是卸载命令</span>
+</span></span></code></pre></div><h2 id="下载词库">下载词库</h2>
+<p><a href="https://github.com/iDvel/rime-ice">雾凇拼音</a>——长期维护的简体词库</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 创建文件夹（如果不存在）</span>
+</span></span><span style="display:flex;"><span>mkdir -p ~/.local/share/fcitx5/rime/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 克隆雾凇拼音这个Rime配置到本地（我克隆到了 ~/Downloads 目录）</span>
+</span></span><span style="display:flex;"><span>git clone https://github.com/iDvel/rime-ice.git rime --depth <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 复制上面克隆到本地的文件夹内的所有文件到刚创建的文件夹</span>
+</span></span><span style="display:flex;"><span>cp ~/Downloads/rime/* ~/.local/share/fcitx5/rime
+</span></span></code></pre></div><h2 id="简单配置">简单配置</h2>
+<ul>
+<li>
+<p>通过快捷键选择输入方案</p>
+</li>
+<li>
+<p>修改每页候选词个数</p>
+</li>
+</ul>
+<p>编辑 <em><strong>~/.local/share/fcitx5/rime/default.yaml</strong></em> 文件，修改 <code>page_size</code> 这行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># ~/.local/share/fcitx5/rime/default.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">page_size</span>: <span style="color:#ae81ff">9</span>
+</span></span></code></pre></div><ul>
+<li>隐藏拼音注释</li>
+</ul>
+<p>候选框默认会显示拼音注释，比如：你好[ni hao]，我使用小鹤双拼，所以编辑 <em><strong>~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml</strong></em>，注释下面这两行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># ~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spelling_hints</span>: <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">always_show_comments</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><ul>
+<li>添加 Rime</li>
+</ul>
+<p>打开 Fcitx5 Configuration 这个图形化工具添加 Rime</p>
+<ul>
+<li>环境变量</li>
+</ul>
+<p>编辑 <em><strong>~/.bash_profile</strong></em>，添加下面三行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export GTK_IM_MODULE<span style="color:#f92672">=</span>fcitx
+</span></span><span style="display:flex;"><span>export QT_IM_MODULE<span style="color:#f92672">=</span>fcitx
+</span></span><span style="display:flex;"><span>export XMODIFIERS<span style="color:#f92672">=</span>@im<span style="color:#f92672">=</span>fcitx
+</span></span></code></pre></div><ul>
+<li>重新加载配置</li>
+</ul>
+<p>通过 Gnome Tweaks 设置开机启动，重新登录或者重启，然后打字测试</p>
+<ul>
+<li>Gnome 扩展</li>
+</ul>
+<p>安装 Input Method Panel 扩展以实现 UI 统一、托盘显示输入法图标、调整候选词字号等 🔚</p>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='http://localhost:1313/js/toc.js'></script>
+<link rel="stylesheet" href='http://localhost:1313/css/toc.css' />
+
+  
+</div>
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="http://localhost:1313/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+      <li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href="https://github.com/">GitHub, Inc.</a></li>
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+
+</body>
+
+<script type="application/javascript" src="http://localhost:1313/js/github-style.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+<script type="application/javascript" src='http://localhost:1313/js/search.js'></script>
+
+
+
+</html>
