@@ -1,0 +1,39 @@
+baseURL = 'https://foxusn.github.io/'
+languageCode = 'zh-cn'
+title = 'My New Hugo Site'
+theme = 'github-style'
+
+
+[params]
+    author = "foxusn"
+    github = "foxusn"
+    location = "China"
+    email = 'example@gmail.com'
+    # url = 'https://github.com/foxusn'
+    lastmod = true
+    favicon = "/images/github-mark-white.png"
+    headerIcon = "/images/github-mark-white.png"
+    avatar = "/ghimg.png"
+    enableSearch = true
+    keywords = "blog, google analytics"
+    # rss = true
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
+
+
+
+
+
+
+# profile 
+
+# [[params.links]]
+#     title = "Link"
+#     href = "https://github.com/foxusn"
+# 
+# [[params.links]]
+#     title = "Link2"
+#     href = "https://meik2333.com"
+#     icon = "https://meik2333.com/images/avatar.png"
+
