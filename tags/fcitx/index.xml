@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fcitx on My New Hugo Site</title>
+    <link>https://foxusn.github.io/tags/fcitx/</link>
+    <description>Recent content in Fcitx on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 19 Jun 2025 04:38:01 +0800</lastBuildDate>
+    <atom:link href="https://foxusn.github.io/tags/fcitx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fedora 安装中文输入法（Fcitx 5）</title>
+      <link>https://foxusn.github.io/posts/fcitx5/</link>
+      <pubDate>Mon, 07 Apr 2025 15:41:59 +0800</pubDate>
+      <guid>https://foxusn.github.io/posts/fcitx5/</guid>
+      <description>Fedora Linux (Workstation) 上安装 Fcitx 5 框架并配置中文输入法</description>
+    </item>
+  </channel>
+</rss>
