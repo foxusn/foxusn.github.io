@@ -10,7 +10,7 @@
     <link rel="stylesheet" href='https://foxusn.github.io/css/light.css' />
     <link rel="stylesheet" href='https://foxusn.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://foxusn.github.io/css/syntax.css' />
-    <title>Fedora 上使用 Samba - 332C</title>
+    <title>Fedora 42 安装、配置 Samba - 332C</title>
     
     <link rel="icon" type="image/x-icon" href='/images/github-mark-white.png'>
     
@@ -21,7 +21,7 @@
 
     
     <meta name="description"
-  content="Fedora (Workstation) 上配置 Samba 实现局域网文件共享" />
+  content="Fedora Linux (Workstation) 上实现局域网文件共享" />
 <meta name="keywords"
   content='Samba, SMB' />
 <meta name="robots" content="noodp" />
@@ -29,9 +29,9 @@
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Fedora 上使用 Samba - 332C" />
+<meta name="twitter:title" content="Fedora 42 安装、配置 Samba - 332C" />
 <meta name="twitter:description"
-  content="Fedora (Workstation) 上配置 Samba 实现局域网文件共享" />
+  content="Fedora Linux (Workstation) 上实现局域网文件共享" />
 <meta name="twitter:site" content="https://foxusn.github.io/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image"
@@ -39,11 +39,11 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Fedora 上使用 Samba - 332C">
+<meta property="og:title" content="Fedora 42 安装、配置 Samba - 332C">
 <meta property="og:description"
-  content="Fedora (Workstation) 上配置 Samba 实现局域网文件共享" />
+  content="Fedora Linux (Workstation) 上实现局域网文件共享" />
 <meta property="og:url" content="https://foxusn.github.io/posts/samba-fedora/" />
-<meta property="og:site_name" content="Fedora 上使用 Samba" />
+<meta property="og:site_name" content="Fedora 42 安装、配置 Samba" />
 <meta property="og:image"
   content="https://foxusn.github.io/">
 <meta property="og:image:width" content="2048">
@@ -144,7 +144,7 @@
                   </span>
                   <span class="path-divider">/</span>
                   <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
-                    <a href="https://foxusn.github.io/posts/samba-fedora/">Fedora 上使用 Samba</a>
+                    <a href="https://foxusn.github.io/posts/samba-fedora/">Fedora 42 安装、配置 Samba</a>
                   </strong>
                 </h1>
                 <div class="note m-0">
@@ -154,9 +154,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 19 Jun 2025 05:32:06 &#43;0800"
+                  Modified <relative-time datetime="Thu, 19 Jun 2025 05:38:46 &#43;0800"
                     class="no-wrap">
-                    Thu, 19 Jun 2025 05:32:06 &#43;0800</relative-time>
+                    Thu, 19 Jun 2025 05:38:46 &#43;0800</relative-time>
                   
                 </div>
               </div>
@@ -218,12 +218,12 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><h3 id="安装-samba">安装 Samba</h3>
+                <article class="markdown-body entry-content container-lg"><h2 id="安装-samba">安装 Samba</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install samba samba-client samba-common
-</span></span></code></pre></div><h3 id="创建共享文件夹">创建共享文件夹</h3>
+</span></span></code></pre></div><h2 id="创建共享文件夹">创建共享文件夹</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/Shared
 </span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">777</span> ~/Shared      <span style="color:#75715e"># 赋权</span>
-</span></span></code></pre></div><h3 id="配置共享文件夹">配置共享文件夹</h3>
+</span></span></code></pre></div><h2 id="配置共享文件夹">配置共享文件夹</h2>
 <p>追加内容到 /etc/samba/smb.conf</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bash -c <span style="color:#e6db74">&#39;cat &gt;&gt; /etc/samba/smb.conf &lt;&lt;EOF
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[Shared]
@@ -235,23 +235,23 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    directory mask = 0777
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    force user = YOUR_USERNAME
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF&#39;</span>
-</span></span></code></pre></div><h3 id="添加-samba-用户">添加 Samba 用户</h3>
+</span></span></code></pre></div><h2 id="添加-samba-用户">添加 Samba 用户</h2>
 <p>需确保这个用户在系统中存在</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo smbpasswd -a YOUR_USERNAME
-</span></span></code></pre></div><h3 id="配置防火墙">配置防火墙</h3>
+</span></span></code></pre></div><h2 id="配置防火墙">配置防火墙</h2>
 <p>配置防火墙放行 Samba 服务</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo firewall-cmd --permanent --add-service<span style="color:#f92672">=</span>samba
 </span></span><span style="display:flex;"><span>sudo firewall-cmd --reload
 </span></span><span style="display:flex;"><span>sudo firewall-cmd --list-all
-</span></span></code></pre></div><h3 id="配置-selinux">配置 SELinux</h3>
+</span></span></code></pre></div><h2 id="配置-selinux">配置 SELinux</h2>
 <p>配置 SELinux 支持 Samba 访问 home 目录</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo setsebool -P samba_enable_home_dirs on
 </span></span><span style="display:flex;"><span>sudo chcon -t samba_share_t ~/Shared -R
-</span></span></code></pre></div><h3 id="配置开机启动">配置开机启动</h3>
+</span></span></code></pre></div><h2 id="配置开机启动">配置开机启动</h2>
 <p>立即启动、开机自启动</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable --now smb nmb
 </span></span><span style="display:flex;"><span>sudo systemctl status smb nmb
-</span></span></code></pre></div><h3 id="连接">连接</h3>
+</span></span></code></pre></div><h2 id="连接">连接</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>smb://192.168.XXX.XXX/Shared
 </span></span></code></pre></div></article>
               </div>
