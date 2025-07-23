@@ -1,85 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on 332C</title><link>https://example.com/tags/blog/</link><description>Recent content in Blog on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 06 Apr 2025 22:04:04 +0800</lastBuildDate><atom:link href="https://example.com/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo 博客搭建和部署</title><link>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/</link><pubDate>Sun, 06 Apr 2025 22:04:04 +0800</pubDate><guid>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/</guid><description>&lt;p>之前一直用 Hexo 发博客，生成速度确实感人，最近研究了一下常见的几个静态网站生成器，最终选择了 Hugo，以下是 Hugo 博客搭建和通过 GitHub Pages + GitHub Actions （使用 Deploy key 而不是 PAT）实现自动部署的具体步骤&lt;/p>
-&lt;h2 id="前置条件">前置条件
-&lt;/h2>&lt;p>🔧 Git，GitHub 账户，VS Code&lt;/p>
-&lt;h2 id="本地部署">本地部署
-&lt;/h2>&lt;p>这里在 Fedora Linux 上做本地部署，其他操作系统上的步骤大同小异&lt;/p>
-&lt;p>▶️ 首先使用内置的包管理器搜索 hugo 查看是否是最新版本（dnf 是 Fedora 内置的包管理器），是则通过&lt;code>dnf install hugo&lt;/code>命令安装，否则到 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
->GitHub&lt;/a> 下载最新版本 hugo&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf info hugo &lt;span class="c1"># 或者：dnf repoquery hugo&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>dnf 搜索的版本对比 GitHub 上的版本，GitHub 的版本更新，所以我在 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
->GitHub&lt;/a> 下载，又因为后面会通过 GitHub Pages 部署，所以选择文件名不带 “withdeploy” 的版本，通过命令解压：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xzvf hugo_extended_x.xxx.x_linux-amd64.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>解压后把 &lt;strong>hugo&lt;/strong> 这个文件移动到 &lt;em>&lt;strong>/usr/local/bin&lt;/strong>&lt;/em> 目录：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo mv hugo /usr/local/bin
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看 Hugo 版本：&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on 332C</title><link>https://example.com/tags/blog/</link><description>Recent content in Blog on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 06 Apr 2025 21:37:44 +0800</lastBuildDate><atom:link href="https://example.com/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo 博客搭建和部署</title><link>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/</link><pubDate>Sun, 06 Apr 2025 21:37:44 +0800</pubDate><guid>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>在 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
+>GitHub&lt;/a>下载最新的&lt;code>hugo_extended_0.xxx.x_linux-amd64.tar.gz&lt;/code>，然后解压：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xzvf hugo_extended_0.xxx.x_linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>移动解压得到的&lt;code>hugo&lt;/code>文件到 &lt;em>&lt;strong>/usr/local/bin&lt;/strong>&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo mv ./hugo /usr/local/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看版本、验证安装&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>创建、进入博客文件夹：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new site hugo-blog &lt;span class="c1"># 自己起一个文件夹名&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="本地站点">本地站点
+&lt;/h2>&lt;p>新建文件夹、添加一个本地博客站点&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Blog/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ~/Blog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo new site hugo-blog
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> hugo-blog
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>初始化仓库：&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>初始化本地仓库&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git init
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>通过 &lt;code>touch .gitignore&lt;/code> 命令新建 .gitignore 文件，复制下面的内容添加进去（用来忽略不必要的文件和文件夹）：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">/public
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">resources/_gen/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.hugo_build.lock
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Compiled Object files, Static and Dynamic libs (Shared Objects)
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.o
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.a
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.so
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Folders
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">_obj
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">_test
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Architecture specific extensions/prefixes
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.[568vq]
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[568vq].out
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.cgo1.go
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.cgo2.c
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">_cgo_defun.c
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">_cgo_gotypes.go
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">_cgo_export.*
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">_testmain.go
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.exe
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.test
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.DS_Store
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在 &lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
->Hugo Themes&lt;/a> 找自己喜欢的主题，以 &lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener"
->PaperMod&lt;/a> 为例，它支持多种安装方式，这里通过 &lt;strong>submodule&lt;/strong> 的方式安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git submodule add --depth&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># needed when you reclone your repo (submodules may not get cloned automatically)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git submodule update --init --recursive
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># update&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git submodule update --remote --merge
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>应用主题：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;theme = &amp;#39;PaperMod&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; hugo.toml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>新建一篇文章：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new content ./content/posts/my-first-post.md
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>启动本地服务器（新建的文章默认是草稿，&lt;code>-D&lt;/code>参数表示构建草稿内容）：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo server -D
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="部署到-github-pages">部署到 GitHub Pages
-&lt;/h2>&lt;p>📦 创建一个 &lt;strong>Public&lt;/strong> 仓库，仓库名为 &lt;em>&lt;strong>&amp;lt;username&amp;gt;.github.io&lt;/strong>&lt;/em>，创建的时候添加一个 &lt;strong>README.md&lt;/strong> 文件（也可以创建好之后添加，总之不是空仓库就行，否则会影响后面的工作流），然后把本地博客目录的 &lt;strong>hugo.toml&lt;/strong> 这个配置文件的 &lt;strong>baseURL&lt;/strong> 这行后面的链接改为 &lt;em>&lt;strong>&lt;a class="link" href="https://username.github.io/" target="_blank" rel="noopener"
->https://username.github.io/&lt;/a>&lt;/strong>&lt;/em>（注意替换 username）&lt;/p>
-&lt;p>📦 再创建一个 &lt;strong>Private&lt;/strong> 仓库，用来保存博客源码，不需要添加任何文件，名字自己起&lt;/p>
-&lt;p>🔑 生成一个 &lt;strong>ed25519&lt;/strong> 类型的 SHH 密钥对，用于连接远程仓库：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;your_email@example.com&amp;#34;&lt;/span> -f ~/.ssh/github_ed25519 -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ~/.ssh 如果不存在会自动创建；-N 参数设置 passphrase 为空&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>把 SSH 私钥添加进 SSH agent：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">eval&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>ssh-agent -s&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/github_ed25519
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>➡️ 复制 &lt;strong>.pub&lt;/strong> 的内容，来到 GitHub，点击头像，点 Settings &amp;gt; SSH and GPG Keys &amp;gt; New SSH key，填写 Title，Key type 保持默认 Authenticaiton Key，粘贴到 Key 的区域，点击Add SSH key&lt;/p>
-&lt;p>然后在博客根目录下测试连接：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-add -l &lt;span class="c1"># 检查本地 SSH key&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试 SSH 连接&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>🔑 同样在 &lt;strong>~/.ssh&lt;/strong> 再生成一个 &lt;strong>ed25519&lt;/strong> 密钥对：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;hugo-deploy-key&amp;#34;&lt;/span> -f ~/.ssh/hugo_deploy_key -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>第二个生成之后不需要把私钥添加进 SSH agent&lt;/p>
-&lt;p>➡️ 复制 &lt;strong>.pub&lt;/strong> 的内容，到刚创建的 Public 仓库，点击 Settings &amp;gt; Deploy keys &amp;gt; Add deploy key，粘贴到 “Key” 下面的输入框，起一个 Title，比如：hugo-deploy-key，勾选“Allow write access”，最后点击“Add key”&lt;/p>
-&lt;p>➡️ 复制私钥的内容（没有扩展名的文件），到到 Private 仓库的 Settings &amp;gt; Secrets and variables &amp;gt; Actions &amp;gt; New repository secret，粘贴到 Secret 下面的输入框，起一个 Name，比如：HUGO_DEPLOY_SECRET，最后点击 Add secret&lt;/p>
-&lt;blockquote>
-&lt;p>⚠️ 私钥要复制包括头尾两行的全部内容，粘贴的时候**&lt;strong>后面多加一个空行&lt;/strong>**&lt;/p>&lt;/blockquote>
-&lt;p>创建 GitHub Actions 工作流文件：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p .github/workflows
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">touch .github/workflows/hugo.yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>编辑 &lt;strong>hugo.yaml&lt;/strong>，把下面内容粘贴进去（&lt;strong>注意替换自己的信息&lt;/strong>）：&lt;/p>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">touch .gitignore
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="主题">主题
+&lt;/h2>&lt;p>添加一个主题，这里使用&lt;code>hugo-theme-stack&lt;/code>这个主题&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/stack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>新建博文&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new content content/post/first-blog.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="密钥对">密钥对
+&lt;/h2>&lt;p>生成两个&lt;code>ed25519&lt;/code>类型的密钥对&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -f ~/.ssh/github_ssh -C &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -f ~/.ssh/hugo_deploy -C &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-add -D
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="远程仓库">远程仓库
+&lt;/h2>&lt;p>创建两个 GitHub 仓库：Public、Private 各一个。(优化中&amp;hellip;)&lt;/p>
+&lt;h2 id="工作流">工作流
+&lt;/h2>&lt;p>参考 &lt;a class="link" href="https://github.com/peaceiris/actions-hugo" target="_blank" rel="noopener"
+>peaceiris/actions-hugo&lt;/a>，添加下面的内容到 &lt;em>&lt;strong>~/Blog/hugo-blog/.github/workfows/hugo.yaml&lt;/strong>&lt;/em> 文件，
+注意替换用户名和 &lt;code>secret&lt;/code> 的变量名&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy to Public Repo&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -90,9 +42,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-latest&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Set timezone&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Set timezone&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> sudo timedatectl set-timezone Asia/Shanghai&lt;/span>&lt;span class="w">
@@ -101,48 +51,45 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v4&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">recursive&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># fetch-depth: 0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># SSH&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup SSH&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">webfactory/ssh-agent@v0.9.1&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ssh-private-key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.HUGO_DEPLOY_KEY }}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Set up Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ssh-private-key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.HUGO_FOXUSN_DEPLOY }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Install Hugo&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Set up Hugo&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v3&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;0.145.0&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 填你的hugo版本&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;latest&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">extended&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Build the Hugo site&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build Hugo site&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Deploy to the public repo via SSH&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy to public repository&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> rm -rf deploy-repo
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git clone --single-branch --branch main git@github.com:&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io.git deploy-repo
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git clone --single-branch --branch main git@github.com:username/username.github.io.git deploy-repo
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> cd deploy-repo
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> rm -rf *
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> cp -r ../public/* .
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git config user.email &amp;#34;example@gmail.com&amp;#34;
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git config user.name &amp;#34;username&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git config user.email &amp;#34;username@example.com&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git config user.name &amp;#34;JohnDoe&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git add .
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> if git diff --cached --quiet; then
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> echo &amp;#34;No changes to commit&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> else
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git commit -m &amp;#34;Auto deploy Hugo site $(date &amp;#39;+%Y-%m-%d %H:%M:%S&amp;#39;)&amp;#34;
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git push origin main&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>配置用户名和邮箱：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 注意替换自己的信息&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config user.email “example@gmail.com”
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config user.name &lt;span class="s2">&amp;#34;username&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 默认使用main分支&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global init.defaultBranch main
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>关联 Private 仓库：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看配置&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:username/hugo-source-code.git
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add, Commit, Push 三步走：&lt;/p>
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> git push origin main
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> fi&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="推送">推送
+&lt;/h2>&lt;p>添加、提交、关联远程仓库、推送&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add .
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;First commit&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;first commit&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git branch -M main
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:username/hugo-blog.git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>最后到 Private 仓库的 Actions 界面看工作流是否 run 成功，成功之后在浏览器打开 &lt;em>username.github.io&lt;/em> 即可查看博客页面 🔚&lt;/p>
-&lt;h2 id="参考">参考
-&lt;/h2>&lt;p>&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
->Hugo&lt;/a>， &lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener"
->PaperMod&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="排障">排障
+&lt;/h2>&lt;p>到 Private 仓库查看 Actions 的情况，根据报错内容查找资料、解决问题&lt;/p></description></item></channel></rss>
