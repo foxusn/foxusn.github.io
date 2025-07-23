@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fcitx on 332C</title><link>https://example.com/tags/fcitx/</link><description>Recent content in Fcitx on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 22 Jul 2025 21:44:58 +0800</lastBuildDate><atom:link href="https://example.com/tags/fcitx/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora Linux 安装中文输入法</title><link>https://example.com/p/fedora-linux-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://example.com/p/fedora-linux-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>安装 Fcitx5 主程序和中文包：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf fcitx5 fcitx5-chinese-addons
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
+&lt;/h2>&lt;p>设置随系统启动，然后重启&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加拼音输入法">添加拼音输入法
+&lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索 ‘shuangpin’ 或其他拼音输入方案，点击 &amp;lsquo;Add&amp;rsquo; 添加&lt;/p>
+&lt;h2 id="安装-gnome-扩展">安装 Gnome 扩展
+&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item></channel></rss>
