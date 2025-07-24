@@ -14,7 +14,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试连接，注意输出的仓库名&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git pull origin main
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora Linux 安装中文输入法</title><link>https://example.com/p/fedora-linux-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://example.com/p/fedora-linux-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora 安装中文输入法</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;p>安装 Fcitx5 主程序和中文包：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf fcitx5 fcitx5-chinese-addons
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
