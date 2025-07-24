@@ -1,26 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 332C</title><link>https://example.com/tags/hugo/</link><description>Recent content in Hugo on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 06 Apr 2025 21:37:44 +0800</lastBuildDate><atom:link href="https://example.com/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo 博客搭建和部署</title><link>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/</link><pubDate>Sun, 06 Apr 2025 21:37:44 +0800</pubDate><guid>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/</guid><description>&lt;h2 id="安装">安装
-&lt;/h2>&lt;p>在 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
->GitHub&lt;/a>下载最新的&lt;code>hugo_extended_0.xxx.x_linux-amd64.tar.gz&lt;/code>，然后解压：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xzvf hugo_extended_0.xxx.x_linux-amd64.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>移动解压得到的&lt;code>hugo&lt;/code>文件到 &lt;em>&lt;strong>/usr/local/bin&lt;/strong>&lt;/em>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo mv ./hugo /usr/local/bin
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看版本、验证安装&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="本地站点">本地站点
-&lt;/h2>&lt;p>新建文件夹、添加一个本地博客站点&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Blog/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ~/Blog
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo new site hugo-blog
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> hugo-blog
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>初始化本地仓库&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git init
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">touch .gitignore
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="主题">主题
-&lt;/h2>&lt;p>添加一个主题，这里使用&lt;code>hugo-theme-stack&lt;/code>这个主题&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/stack
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>新建博文&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new content content/post/first-blog.md
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="密钥对">密钥对
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 332C</title><link>https://example.com/tags/hugo/</link><description>Recent content in Hugo on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 06 Apr 2025 16:15:10 +0800</lastBuildDate><atom:link href="https://example.com/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo 博客 部署篇（创作中）</title><link>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E7%AF%87%E5%88%9B%E4%BD%9C%E4%B8%AD/</link><pubDate>Sun, 06 Apr 2025 16:15:10 +0800</pubDate><guid>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E7%AF%87%E5%88%9B%E4%BD%9C%E4%B8%AD/</guid><description>&lt;h2 id="密钥对">密钥对
 &lt;/h2>&lt;p>生成两个&lt;code>ed25519&lt;/code>类型的密钥对&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -f ~/.ssh/github_ssh -C &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -f ~/.ssh/hugo_deploy -C &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
@@ -92,4 +70,26 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:username/hugo-blog.git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="排障">排障
-&lt;/h2>&lt;p>到 Private 仓库查看 Actions 的情况，根据报错内容查找资料、解决问题&lt;/p></description></item></channel></rss>
+&lt;/h2>&lt;p>到 Private 仓库查看 Actions 的情况，根据报错内容查找资料、解决问题&lt;/p></description></item><item><title>Hugo 博客 搭建篇</title><link>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2-%E6%90%AD%E5%BB%BA%E7%AF%87/</link><pubDate>Sun, 06 Apr 2025 15:51:14 +0800</pubDate><guid>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2-%E6%90%AD%E5%BB%BA%E7%AF%87/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>在 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
+>GitHub&lt;/a>下载最新的&lt;code>hugo_extended_0.xxx.x_linux-amd64.tar.gz&lt;/code>，然后解压：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xzvf hugo_extended_0.xxx.x_linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>移动解压得到的&lt;code>hugo&lt;/code>文件到 &lt;em>&lt;strong>/usr/local/bin&lt;/strong>&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo mv ./hugo /usr/local/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看版本、验证安装&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="本地站点">本地站点
+&lt;/h2>&lt;p>新建文件夹、添加一个本地博客站点&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Blog/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ~/Blog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo new site hugo-blog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> hugo-blog
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>初始化本地仓库&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">touch .gitignore
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="主题">主题
+&lt;/h2>&lt;p>添加一个主题，这里使用&lt;code>hugo-theme-stack&lt;/code>这个主题&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/stack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>新建博文&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new content content/post/first-blog.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
