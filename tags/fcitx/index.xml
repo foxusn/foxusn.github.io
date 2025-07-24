@@ -4,7 +4,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
 &lt;/h2>&lt;p>设置随系统启动，然后重启&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加拼音输入法">添加拼音输入法
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="拼音输入法">拼音输入法
 &lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索 ‘shuangpin’ 或其他拼音输入方案，点击 &amp;lsquo;Add&amp;rsquo; 添加&lt;/p>
-&lt;h2 id="安装-gnome-扩展">安装 Gnome 扩展
+&lt;h2 id="gnome-扩展">Gnome 扩展
 &lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item></channel></rss>

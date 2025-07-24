@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Samba on 332C</title><link>https://example.com/tags/samba/</link><description>Recent content in Samba on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 17 Apr 2025 02:47:51 +0800</lastBuildDate><atom:link href="https://example.com/tags/samba/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora 安装、配置 Samba</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</guid><description>&lt;h2 id="安装-samba">安装 Samba
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Samba on 332C</title><link>https://example.com/tags/samba/</link><description>Recent content in Samba on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 17 Apr 2025 02:47:51 +0800</lastBuildDate><atom:link href="https://example.com/tags/samba/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora 安装、配置 Samba</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install samba samba-client samba-common
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="创建共享文件夹">创建共享文件夹
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="共享文件夹">共享文件夹
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Shared
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">777&lt;/span> ~/Shared &lt;span class="c1"># 赋权&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置共享文件夹">配置共享文件夹
-&lt;/h2>&lt;p>追加内容到 /etc/samba/smb.conf&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>追加内容到 /etc/samba/smb.conf&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo bash -c &lt;span class="s1">&amp;#39;cat &amp;gt;&amp;gt; /etc/samba/smb.conf &amp;lt;&amp;lt;EOF
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">[Shared]
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1"> path = /home/YOUR_USERNAME/Shared
@@ -15,19 +14,19 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1"> directory mask = 0777
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1"> force user = YOUR_USERNAME
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">EOF&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加-samba-用户">添加 Samba 用户
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="samba-用户">Samba 用户
 &lt;/h2>&lt;p>需确保这个用户在系统中存在&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo smbpasswd -a YOUR_USERNAME
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置防火墙">配置防火墙
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="防火墙">防火墙
 &lt;/h2>&lt;p>配置防火墙放行 Samba 服务&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --add-service&lt;span class="o">=&lt;/span>samba
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --reload
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --list-all
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置-selinux">配置 SELinux
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="selinux">SELinux
 &lt;/h2>&lt;p>配置 SELinux 支持 Samba 访问 home 目录&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo setsebool -P samba_enable_home_dirs on
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chcon -t samba_share_t ~/Shared -R
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置开机启动">配置开机启动
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
 &lt;/h2>&lt;p>立即启动、开机自启动&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now smb nmb
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl status smb nmb

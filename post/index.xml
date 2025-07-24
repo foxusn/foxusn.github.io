@@ -1,48 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 332C</title><link>https://example.com/post/</link><description>Recent content in Posts on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 23 Jul 2025 01:37:07 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Git 相关内容</title><link>https://example.com/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Wed, 23 Jul 2025 01:37:07 +0800</pubDate><guid>https://example.com/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="git-配置">Git 配置
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --list &lt;span class="c1"># 查看当前仓库 git 配置&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global --list &lt;span class="c1"># 查看全局 git 配置&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --get init.defaultBranch &lt;span class="c1"># 查看默认分支名&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global init.defaultBranch main &lt;span class="c1"># 修改默认分支为main&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.name &lt;span class="s2">&amp;#34;your name&amp;#34;&lt;/span> &lt;span class="c1"># 配置用户名&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.email &lt;span class="s2">&amp;#34;example@domain.com&amp;#34;&lt;/span> &lt;span class="c1"># 配置邮箱&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="本地push">本地Push
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git init &lt;span class="c1"># 初始化本地仓库&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;first commit&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:username/repo.git
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote v &lt;span class="c1"># 查看本地记录的远程仓库地址&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试连接，注意输出的仓库名&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git pull origin main
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora 安装中文输入法</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 332C</title><link>https://example.com/post/</link><description>Recent content in Posts on 332C</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 22 Jul 2025 21:44:58 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora 安装中文输入法</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;p>安装 Fcitx5 主程序和中文包：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf fcitx5 fcitx5-chinese-addons
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
 &lt;/h2>&lt;p>设置随系统启动，然后重启&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加拼音输入法">添加拼音输入法
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="拼音输入法">拼音输入法
 &lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索 ‘shuangpin’ 或其他拼音输入方案，点击 &amp;lsquo;Add&amp;rsquo; 添加&lt;/p>
-&lt;h2 id="安装-gnome-扩展">安装 Gnome 扩展
-&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>SSH 相关内容</title><link>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Sat, 10 May 2025 18:22:43 +0800</pubDate><guid>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="检查-openssh-是否已安装">检查 openssh 是否已安装
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf list installed openssh
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">which ssh &lt;span class="c1"># 输出 /usr/sbin/ssh&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl status sshd
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="生成-ed25519-密钥对">生成 ed25519 密钥对
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;your_email@example.com&amp;#34;&lt;/span> -f ~/.ssh/github_ed25519 -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ~/.ssh 如果不存在会自动创建；-N 参数设置 passphrase 为空&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加到-ssh-agent">添加到 SSH agent
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">eval&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>ssh-agent -s&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 启动 SSH Agent（后台进程）&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/github_ed25519 &lt;span class="c1"># 把 SSH 私钥添加进 SSH agent，让系统记住它&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="测试-ssh-连接">测试 SSH 连接
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-add -l &lt;span class="c1"># 检查本地 SSH key&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试 SSH 连接&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora 安装、配置 Samba</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</guid><description>&lt;h2 id="安装-samba">安装 Samba
+&lt;h2 id="gnome-扩展">Gnome 扩展
+&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>Fedora 安装、配置 Samba</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install samba samba-client samba-common
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="创建共享文件夹">创建共享文件夹
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="共享文件夹">共享文件夹
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Shared
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">777&lt;/span> ~/Shared &lt;span class="c1"># 赋权&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置共享文件夹">配置共享文件夹
-&lt;/h2>&lt;p>追加内容到 /etc/samba/smb.conf&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>追加内容到 /etc/samba/smb.conf&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo bash -c &lt;span class="s1">&amp;#39;cat &amp;gt;&amp;gt; /etc/samba/smb.conf &amp;lt;&amp;lt;EOF
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">[Shared]
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1"> path = /home/YOUR_USERNAME/Shared
@@ -53,19 +23,19 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1"> directory mask = 0777
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1"> force user = YOUR_USERNAME
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">EOF&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加-samba-用户">添加 Samba 用户
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="samba-用户">Samba 用户
 &lt;/h2>&lt;p>需确保这个用户在系统中存在&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo smbpasswd -a YOUR_USERNAME
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置防火墙">配置防火墙
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="防火墙">防火墙
 &lt;/h2>&lt;p>配置防火墙放行 Samba 服务&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --add-service&lt;span class="o">=&lt;/span>samba
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --reload
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --list-all
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置-selinux">配置 SELinux
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="selinux">SELinux
 &lt;/h2>&lt;p>配置 SELinux 支持 Samba 访问 home 目录&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo setsebool -P samba_enable_home_dirs on
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chcon -t samba_share_t ~/Shared -R
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置开机启动">配置开机启动
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
 &lt;/h2>&lt;p>立即启动、开机自启动&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now smb nmb
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl status smb nmb
@@ -165,4 +135,33 @@
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/stack
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>新建博文&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new content content/post/first-blog.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH 相关内容</title><link>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Mon, 10 Mar 2025 18:22:43 +0800</pubDate><guid>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf list installed openssh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">which ssh &lt;span class="c1"># 输出 /usr/sbin/ssh&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl status sshd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="密钥对">密钥对
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;your_email@example.com&amp;#34;&lt;/span> -f ~/.ssh/github_ed25519 -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ~/.ssh 如果不存在会自动创建；-N 参数设置 passphrase 为空&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh-agent">SSH Agent
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">eval&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>ssh-agent -s&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 启动 SSH Agent（后台进程）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/github_ed25519 &lt;span class="c1"># 把 SSH 私钥添加进 SSH agent，让系统记住它&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="测试">测试
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-add -l &lt;span class="c1"># 检查本地 SSH key&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试 SSH 连接&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Git 相关内容</title><link>https://example.com/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Sun, 23 Feb 2025 01:37:07 +0800</pubDate><guid>https://example.com/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="git-配置">Git 配置
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --list &lt;span class="c1"># 查看当前仓库 git 配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global --list &lt;span class="c1"># 查看全局 git 配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --get init.defaultBranch &lt;span class="c1"># 查看默认分支名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global init.defaultBranch main &lt;span class="c1"># 修改默认分支为main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.name &lt;span class="s2">&amp;#34;your name&amp;#34;&lt;/span> &lt;span class="c1"># 配置用户名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.email &lt;span class="s2">&amp;#34;example@domain.com&amp;#34;&lt;/span> &lt;span class="c1"># 配置邮箱&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="基础命令">基础命令
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git init &lt;span class="c1"># 初始化本地仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;first commit&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:username/repo.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote v &lt;span class="c1"># 查看本地记录的远程仓库地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试连接，注意输出的仓库名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git pull origin main
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

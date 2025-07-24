@@ -4,20 +4,20 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
 &lt;/h2>&lt;p>设置随系统启动，然后重启&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加拼音输入法">添加拼音输入法
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="拼音输入法">拼音输入法
 &lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索 ‘shuangpin’ 或其他拼音输入方案，点击 &amp;lsquo;Add&amp;rsquo; 添加&lt;/p>
-&lt;h2 id="安装-gnome-扩展">安装 Gnome 扩展
-&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>SSH 相关内容</title><link>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Sat, 10 May 2025 18:22:43 +0800</pubDate><guid>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="检查-openssh-是否已安装">检查 openssh 是否已安装
+&lt;h2 id="gnome-扩展">Gnome 扩展
+&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>SSH 相关内容</title><link>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Mon, 10 Mar 2025 18:22:43 +0800</pubDate><guid>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf list installed openssh
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">which ssh &lt;span class="c1"># 输出 /usr/sbin/ssh&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl status sshd
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="生成-ed25519-密钥对">生成 ed25519 密钥对
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="密钥对">密钥对
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;your_email@example.com&amp;#34;&lt;/span> -f ~/.ssh/github_ed25519 -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ~/.ssh 如果不存在会自动创建；-N 参数设置 passphrase 为空&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加到-ssh-agent">添加到 SSH agent
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh-agent">SSH Agent
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">eval&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>ssh-agent -s&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 启动 SSH Agent（后台进程）&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/github_ed25519 &lt;span class="c1"># 把 SSH 私钥添加进 SSH agent，让系统记住它&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="测试-ssh-连接">测试 SSH 连接
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="测试">测试
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-add -l &lt;span class="c1"># 检查本地 SSH key&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试 SSH 连接&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
