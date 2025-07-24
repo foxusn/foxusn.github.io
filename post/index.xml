@@ -1,17 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 332C</title><link>https://example.com/post/</link><description>Recent content in Posts on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 22 Jul 2025 21:44:58 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora 安装中文输入法</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 332C</title><link>https://foxusn.github.io/post/</link><description>Recent content in Posts on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 24 Jul 2025 22:26:48 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch Linux 预演</title><link>https://foxusn.github.io/p/arch-linux-%E9%A2%84%E6%BC%94/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/p/arch-linux-%E9%A2%84%E6%BC%94/</guid><description>&lt;h2 id="网络">网络
+&lt;/h2>&lt;p>查看网络情况、连接网络&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ip link
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ip a
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ping -c &lt;span class="m">3&lt;/span> bilibili.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iwctl device list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iwctl --passphrase &amp;lt;password&amp;gt; station wlan0 connect &amp;lt;wifiname&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="时区--时间">时区 &amp;amp; 时间
+&lt;/h2>&lt;p>设置时区和时间&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">timedatectl set-ntp &lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-timezone Asia/Shanghai
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="分区">分区
+&lt;/h2>&lt;p>查看分区情况、分区&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">lsblk -p
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">fdisk -l
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cfdisk /dev/nvme0n1 xxx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="文件系统">文件系统
+&lt;/h2>&lt;p>格式化文件系统&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkfs.fat -F &lt;span class="m">32&lt;/span> /dev/efi_system_partition
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkfs.btrfs /dev/root_partition
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="btrfs-子卷">Btrfs 子卷
+&lt;/h2>&lt;p>创建 Btrfs 子卷&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mount -t btrfs -o &lt;span class="nv">compress&lt;/span>&lt;span class="o">=&lt;/span>zstd /dev/root_partition /mnt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">btrfs subvolume create /mnt/@
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">btrfs subvolume create /mnt/@home
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">btrfs subvolume create /mnt/@swap
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">btrfs subvolume list -p /mnt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">umount /mnt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="挂载">挂载
+&lt;/h2>&lt;p>挂载分区&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mount -t btrfs -o &lt;span class="nv">subvol&lt;/span>&lt;span class="o">=&lt;/span>/@,compress&lt;span class="o">=&lt;/span>zstd /dev/root_partition /mnt &lt;span class="c1">#根目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount --mkdir -t btrfs -o &lt;span class="nv">subvol&lt;/span>&lt;span class="o">=&lt;/span>/@home,compress&lt;span class="o">=&lt;/span>zstd /dev/root_partition /mnt/home &lt;span class="c1">#/home目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount --mkdir -t btrfs -o &lt;span class="nv">subvol&lt;/span>&lt;span class="o">=&lt;/span>/@swap,compress&lt;span class="o">=&lt;/span>zstd /dev/root_partition /mnt/swap &lt;span class="c1">#/swap目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount --mkdir /dev/efi_partition /mnt/boot &lt;span class="c1">#/boot目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount --mkdir /dev/winefi_partition /mnt/winboot &lt;span class="c1"># windows的启动分区，为双系统引导做准备&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">df -h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>开始安装&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">vim /etc/pacman.d/mirrorlist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacman -Sy archlinux-keyring
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacstrap -K /mnt base base-devel linux linux-firmware linux-headers btrfs-progs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -K 复制密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># base-devel 是编译其他软件的时候用的&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># linux 是内核，可以更换&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># linux-firmware 是固件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># btrfs-progs 是 btrfs 文件系统的管理工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacstrap /mnt networkmanager vim neovim sudo amd-ucode bash-completion
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="未完待续">未完待续。。。
+&lt;/h2></description></item><item><title>Go Quick Note</title><link>https://foxusn.github.io/p/go-quick-note/</link><pubDate>Thu, 24 Jul 2025 21:55:04 +0800</pubDate><guid>https://foxusn.github.io/p/go-quick-note/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install golang
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="项目">项目
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Golang/myapp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ~/Golang/myapp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go mod init myapp.local
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="示例">示例
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">package&lt;/span> &lt;span class="nx">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="s">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">whatToSay&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="s">&amp;#34;hello world&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">saySomething&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">whatToSay&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">saySomething&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">whatToSay&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">whatToSay&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="运行">运行
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">go run hello.go
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># --- OR ---&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go build hello.go
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./hello
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora 安装中文输入法</title><link>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;p>安装 Fcitx5 主程序和中文包：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf fcitx5 fcitx5-chinese-addons
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
-&lt;/h2>&lt;p>设置随系统启动，然后重启&lt;/p>
+&lt;/h2>&lt;p>设置 Fcitx5 随系统启动，然后重启&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="拼音输入法">拼音输入法
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="拼音方案">拼音方案
 &lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索 ‘shuangpin’ 或其他拼音输入方案，点击 &amp;lsquo;Add&amp;rsquo; 添加&lt;/p>
 &lt;h2 id="gnome-扩展">Gnome 扩展
-&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>Fedora 安装、配置 Samba</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>Fedora 安装、配置 Samba</title><link>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install samba samba-client samba-common
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="共享文件夹">共享文件夹
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Shared
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">777&lt;/span> ~/Shared &lt;span class="c1"># 赋权&lt;/span>
+&lt;/h2>&lt;p>创建文件夹、赋权&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Shared
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">777&lt;/span> ~/Shared
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>追加内容到 /etc/samba/smb.conf&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo bash -c &lt;span class="s1">&amp;#39;cat &amp;gt;&amp;gt; /etc/samba/smb.conf &amp;lt;&amp;lt;EOF
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">[Shared]
@@ -41,7 +117,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl status smb nmb
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="连接">连接
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">smb://192.168.XXX.XXX/Shared
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Hugo 博客 部署篇（创作中）</title><link>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E7%AF%87%E5%88%9B%E4%BD%9C%E4%B8%AD/</link><pubDate>Sun, 06 Apr 2025 16:15:10 +0800</pubDate><guid>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E7%AF%87%E5%88%9B%E4%BD%9C%E4%B8%AD/</guid><description>&lt;h2 id="密钥对">密钥对
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Hugo 博客 部署篇（创作中）</title><link>https://foxusn.github.io/p/hugo-%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E7%AF%87%E5%88%9B%E4%BD%9C%E4%B8%AD/</link><pubDate>Sun, 06 Apr 2025 16:15:10 +0800</pubDate><guid>https://foxusn.github.io/p/hugo-%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E7%AF%87%E5%88%9B%E4%BD%9C%E4%B8%AD/</guid><description>&lt;h2 id="密钥对">密钥对
 &lt;/h2>&lt;p>生成两个&lt;code>ed25519&lt;/code>类型的密钥对&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -f ~/.ssh/github_ssh -C &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -f ~/.ssh/hugo_deploy -C &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
@@ -113,7 +189,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:username/hugo-blog.git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="排障">排障
-&lt;/h2>&lt;p>到 Private 仓库查看 Actions 的情况，根据报错内容查找资料、解决问题&lt;/p></description></item><item><title>Hugo 博客 搭建篇</title><link>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2-%E6%90%AD%E5%BB%BA%E7%AF%87/</link><pubDate>Sun, 06 Apr 2025 15:51:14 +0800</pubDate><guid>https://example.com/p/hugo-%E5%8D%9A%E5%AE%A2-%E6%90%AD%E5%BB%BA%E7%AF%87/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>到 Private 仓库查看 Actions 的情况，根据报错内容查找资料、解决问题&lt;/p></description></item><item><title>Hugo 博客 搭建篇</title><link>https://foxusn.github.io/p/hugo-%E5%8D%9A%E5%AE%A2-%E6%90%AD%E5%BB%BA%E7%AF%87/</link><pubDate>Sun, 06 Apr 2025 15:51:14 +0800</pubDate><guid>https://foxusn.github.io/p/hugo-%E5%8D%9A%E5%AE%A2-%E6%90%AD%E5%BB%BA%E7%AF%87/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;p>在 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
 >GitHub&lt;/a>下载最新的&lt;code>hugo_extended_0.xxx.x_linux-amd64.tar.gz&lt;/code>，然后解压：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xzvf hugo_extended_0.xxx.x_linux-amd64.tar.gz
@@ -135,7 +211,7 @@
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/stack
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>新建博文&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new content content/post/first-blog.md
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH 相关内容</title><link>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Mon, 10 Mar 2025 18:22:43 +0800</pubDate><guid>https://example.com/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="安装">安装
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH 相关内容</title><link>https://foxusn.github.io/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Mon, 10 Mar 2025 18:22:43 +0800</pubDate><guid>https://foxusn.github.io/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf list installed openssh
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">which ssh &lt;span class="c1"># 输出 /usr/sbin/ssh&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl status sshd
@@ -148,7 +224,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="测试">测试
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-add -l &lt;span class="c1"># 检查本地 SSH key&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试 SSH 连接&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Git 相关内容</title><link>https://example.com/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Sun, 23 Feb 2025 01:37:07 +0800</pubDate><guid>https://example.com/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="git-配置">Git 配置
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Git 相关内容</title><link>https://foxusn.github.io/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Sun, 23 Feb 2025 01:37:07 +0800</pubDate><guid>https://foxusn.github.io/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="git-配置">Git 配置
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --list &lt;span class="c1"># 查看当前仓库 git 配置&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global --list &lt;span class="c1"># 查看全局 git 配置&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --get init.defaultBranch &lt;span class="c1"># 查看默认分支名&lt;/span>
