@@ -36,7 +36,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="测试-ssh-连接">测试 SSH 连接
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-add -l &lt;span class="c1"># 检查本地 SSH key&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试 SSH 连接&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora 42 安装、配置 Samba</title><link>https://example.com/p/fedora-42-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://example.com/p/fedora-42-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</guid><description>&lt;h2 id="安装-samba">安装 Samba
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora 安装、配置 Samba</title><link>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://example.com/p/fedora-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-samba/</guid><description>&lt;h2 id="安装-samba">安装 Samba
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install samba samba-client samba-common
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="创建共享文件夹">创建共享文件夹
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir -p ~/Shared
