@@ -1,25 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fedora on 332C</title><link>https://foxusn.github.io/tags/fedora/</link><description>Recent content in Fedora on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Apr 2025 10:15:59 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</guid><description>&lt;h2 id="主机名">主机名
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fedora on 332C</title><link>https://foxusn.github.io/tags/fedora/</link><description>Recent content in Fedora on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Apr 2025 10:15:59 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</guid><description>&lt;h2 id="网络">网络
+&lt;/h2>&lt;p>扫描、连接 wifi：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli dev wifi list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmcli dev wifi rescan
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmcli device wifi connect &lt;span class="s2">&amp;#34;SSID&amp;#34;&lt;/span> password &lt;span class="s2">&amp;#34;PSW&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmcli connection show --active
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="主机名">主机名
 &lt;/h2>&lt;p>查看、修改主机名&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hostnamectl
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo hostnamectl set-hostname &amp;lt;new-hostname&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="dnf">DNF
-&lt;/h2>&lt;p>编辑 &lt;em>&lt;strong>/etc/dnf/dnf.conf&lt;/strong>&lt;/em>，添加：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">defaultyes&lt;/span>&lt;span class="o">=&lt;/span>True
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="包管理">包管理
+&lt;/h2>&lt;p>追加 &lt;code>defaultyes=True&lt;/code> 到 &lt;em>&lt;strong>/etc/dnf/dnf.conf&lt;/strong>&lt;/em>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;defaultyes=True&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee -a /etc/dnf/dnf.conf
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>更新软件包：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf check-update
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf upgrade
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>按需安装：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install neovim fastfetch golang bat tealdeer mpv freerdp fcitx5 fcitx5-chinese-addons libavcodec-freeworld
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>常用 DNF 命令：&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>常用 &lt;code>dnf&lt;/code> 命令：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf search &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf info &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf install &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf remove &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf list --installed &lt;span class="p">|&lt;/span> grep -i &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf autoremove
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="grub">Grub
-&lt;/h2>&lt;p>编辑 &lt;em>&lt;strong>/etc/default/grub&lt;/strong>&lt;/em>, 添加：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">GRUB_SAVEDEFAULT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="引导">引导
+&lt;/h2>&lt;p>追加 &lt;code>GRUB_SAVEDEFAULT=true&lt;/code> 到 &lt;em>&lt;strong>/etc/default/grub&lt;/strong>&lt;/em>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;GRUB_SAVEDEFAULT=true&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee -a /etc/default/grub
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重新生成 GRUB2 引导配置文件并将生成的配置写入到 &lt;em>&lt;strong>/boot/grub2/grub.cfg&lt;/strong>&lt;/em>：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="别名">别名
@@ -69,19 +75,20 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># xfreerdp&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">rdpwin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;nohup xfreerdp /v:localhost /u:USERNAME /p:PSW /dynamic-r esolution /scale-desktop:210 +clipboard /sound:sys:alsa &amp;gt; ~/.xfreerd p.log 2&amp;gt;&amp;amp;1 &amp;amp;&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="bash">Bash
-&lt;/h2>&lt;p>编辑 &lt;em>&lt;strong>~/.bashrc&lt;/strong>&lt;/em>，添加：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">bind&lt;/span> &lt;span class="s2">&amp;#34;set completion-ignore-case on&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HISTCONTROL&lt;/span>&lt;span class="o">=&lt;/span>erasedups
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HISTIGNORE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;amp;:h:l:l.:la:ll:ls:cd:pwd:c:v:..:...:....&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Aliases&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -f ~/.myaliases &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">source&lt;/span> ~/.myaliases
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/h2>&lt;p>追加内容到 &lt;em>&lt;strong>~/.bashrc&lt;/strong>&lt;/em>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat &amp;gt;&amp;gt; ~/.bashrc &lt;span class="s">&amp;lt;&amp;lt; &amp;#39;EOF&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">bind &amp;#34;set completion-ignore-case on&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">export HISTCONTROL=erasedups
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">export HISTIGNORE=&amp;#34;&amp;amp;:h:l:l.:la:ll:ls:cd:pwd:c:v:..:...:....&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"># Aliases
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">if [ -f ~/.myaliases ]; then
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> source ~/.myaliases
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">fi
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>应用修改：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.bashrc
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="flatpak">Flatpak
-&lt;/h2>&lt;p>常用 Flatpak 命令：&lt;/p>
+&lt;/h2>&lt;p>常用 &lt;code>flatpak&lt;/code> 命令：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">flatpak install flathub &amp;lt;pkg-id&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak search &amp;lt;keyword&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak list --app
@@ -89,7 +96,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak remote-ls --updates
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak update &amp;lt;pkg-id&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="rpm-fusion">RPM Fusion
-&lt;/h2>&lt;p>启用 &lt;strong>RPM Fusion&lt;/strong>：&lt;/p>
+&lt;/h2>&lt;p>启用 RPM Fusion：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-&lt;span class="k">$(&lt;/span>rpm -E %fedora&lt;span class="k">)&lt;/span>.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-&lt;span class="k">$(&lt;/span>rpm -E %fedora&lt;span class="k">)&lt;/span>.noarch.rpm
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="office">Office
 &lt;/h2>&lt;p>不需要 LibreOffice 可以卸载：&lt;/p>
