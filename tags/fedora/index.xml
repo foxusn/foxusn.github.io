@@ -1,66 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on 332C</title><link>https://foxusn.github.io/tags/linux/</link><description>Recent content in Linux on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 24 Jul 2025 22:26:48 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch Linux 安装预演</title><link>https://foxusn.github.io/p/arch-linux-%E5%AE%89%E8%A3%85%E9%A2%84%E6%BC%94/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/p/arch-linux-%E5%AE%89%E8%A3%85%E9%A2%84%E6%BC%94/</guid><description>&lt;h2 id="网络">网络
-&lt;/h2>&lt;p>查看网络情况、连接网络&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ip link
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ip a
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ping -c &lt;span class="m">3&lt;/span> bilibili.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iwctl device list
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iwctl --passphrase &amp;lt;password&amp;gt; station wlan0 connect &amp;lt;wifiname&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="时区--时间">时区 &amp;amp; 时间
-&lt;/h2>&lt;p>设置时区和时间&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">timedatectl set-ntp &lt;span class="nb">true&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-timezone Asia/Shanghai
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="分区">分区
-&lt;/h2>&lt;p>查看分区情况、分区&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">lsblk -p
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">fdisk -l
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cfdisk /dev/nvme0n1 xxx
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="文件系统">文件系统
-&lt;/h2>&lt;p>格式化文件系统&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkfs.fat -F &lt;span class="m">32&lt;/span> /dev/efi_system_partition
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkfs.btrfs /dev/root_partition
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="btrfs-子卷">Btrfs 子卷
-&lt;/h2>&lt;p>创建 Btrfs 子卷&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mount -t btrfs -o &lt;span class="nv">compress&lt;/span>&lt;span class="o">=&lt;/span>zstd /dev/root_partition /mnt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">btrfs subvolume create /mnt/@
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">btrfs subvolume create /mnt/@home
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">btrfs subvolume create /mnt/@swap
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">btrfs subvolume list -p /mnt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">umount /mnt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="挂载">挂载
-&lt;/h2>&lt;p>挂载分区&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mount -t btrfs -o &lt;span class="nv">subvol&lt;/span>&lt;span class="o">=&lt;/span>/@,compress&lt;span class="o">=&lt;/span>zstd /dev/root_partition /mnt &lt;span class="c1">#根目录&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount --mkdir -t btrfs -o &lt;span class="nv">subvol&lt;/span>&lt;span class="o">=&lt;/span>/@home,compress&lt;span class="o">=&lt;/span>zstd /dev/root_partition /mnt/home &lt;span class="c1">#/home目录&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount --mkdir -t btrfs -o &lt;span class="nv">subvol&lt;/span>&lt;span class="o">=&lt;/span>/@swap,compress&lt;span class="o">=&lt;/span>zstd /dev/root_partition /mnt/swap &lt;span class="c1">#/swap目录&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount --mkdir /dev/efi_partition /mnt/boot &lt;span class="c1">#/boot目录&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount --mkdir /dev/winefi_partition /mnt/winboot &lt;span class="c1"># windows的启动分区，为双系统引导做准备&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">df -h
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装">安装
-&lt;/h2>&lt;p>开始安装&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">vim /etc/pacman.d/mirrorlist
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacman -Sy archlinux-keyring
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacstrap -K /mnt base base-devel linux linux-firmware linux-headers btrfs-progs
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -K 复制密钥&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># base-devel 是编译其他软件的时候用的&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># linux 是内核，可以更换&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># linux-firmware 是固件&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># btrfs-progs 是 btrfs 文件系统的管理工具&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacstrap /mnt networkmanager vim neovim sudo amd-ucode bash-completion
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="未完待续">未完待续。。。
-&lt;/h2></description></item><item><title>Fedora 安装中文输入法</title><link>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
-&lt;/h2>&lt;p>安装 Fcitx5 主程序和中文包：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf fcitx5 fcitx5-chinese-addons
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
-&lt;/h2>&lt;p>设置 Fcitx5 随系统启动，然后重启&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="输入方案">输入方案
-&lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索输入方案（如：shuangpin），点击 &lt;strong>Add&lt;/strong> 添加&lt;/p>
-&lt;h2 id="gnome-扩展">Gnome 扩展
-&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</guid><description>&lt;h2 id="主机名">主机名
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fedora on 332C</title><link>https://foxusn.github.io/tags/fedora/</link><description>Recent content in Fedora on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Apr 2025 10:15:59 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</guid><description>&lt;h2 id="主机名">主机名
 &lt;/h2>&lt;p>查看、修改主机名&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hostnamectl
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo hostnamectl set-hostname &amp;lt;new-hostname&amp;gt;
@@ -156,17 +94,4 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="office">Office
 &lt;/h2>&lt;p>不需要 LibreOffice 可以卸载：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf remove libreoffice*
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH 相关内容</title><link>https://foxusn.github.io/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Mon, 10 Mar 2025 18:22:43 +0800</pubDate><guid>https://foxusn.github.io/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="安装">安装
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf list installed openssh
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">which ssh &lt;span class="c1"># 输出 /usr/sbin/ssh&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl status sshd
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="密钥对">密钥对
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;your_email@example.com&amp;#34;&lt;/span> -f ~/.ssh/github_ed25519 -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ~/.ssh 如果不存在会自动创建；-N 参数设置 passphrase 为空&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh-agent">SSH Agent
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">eval&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>ssh-agent -s&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 启动 SSH Agent（后台进程）&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/github_ed25519 &lt;span class="c1"># 把 SSH 私钥添加进 SSH agent，让系统记住它&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="测试">测试
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-add -l &lt;span class="c1"># 检查本地 SSH key&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试 SSH 连接&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
