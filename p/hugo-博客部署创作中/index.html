@@ -12,7 +12,7 @@
 </span></span><span class=line><span class=cl>ssh-keygen -t ed25519 -f ~/.ssh/hugo_deploy -C <span class=s2>&#34;&#34;</span> -N <span class=s2>&#34;&#34;</span>
 </span></span><span class=line><span class=cl>ssh-add -D
 </span></span><span class=line><span class=cl>ssh -T git@github.com 
-</span></span></code></pre></div><h2 id=远程仓库>远程仓库</h2><p>创建两个 GitHub 仓库：Public、Private 各一个。(优化中&mldr;)</p><h2 id=工作流>工作流</h2><p>参考 <a class=link href=https://github.com/peaceiris/actions-hugo target=_blank rel=noopener>peaceiris/actions-hugo</a>，添加下面的内容到 <em><strong>~/Blog/hugo-blog/.github/workfows/hugo.yaml</strong></em> 文件，
+</span></span></code></pre></div><h2 id=远程仓库>远程仓库</h2><p>创建两个 GitHub 仓库：Public、Private 各一个。(优化中&mldr;)</p><h2 id=工作流>工作流</h2><p>参考 <a class=link href=https://github.com/peaceiris/actions-hugo target=_blank rel=noopener>peaceiris/actions-hugo</a>，添加下面的内容到 <em>~/Blog/hugo-blog/.github/workfows/hugo.yaml</em> 文件，
 注意替换用户名和 <code>secret</code> 的变量名</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Deploy to Public Repo</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>

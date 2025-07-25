@@ -8,7 +8,7 @@
 &lt;/h2>&lt;p>创建两个 GitHub 仓库：Public、Private 各一个。(优化中&amp;hellip;)&lt;/p>
 &lt;h2 id="工作流">工作流
 &lt;/h2>&lt;p>参考 &lt;a class="link" href="https://github.com/peaceiris/actions-hugo" target="_blank" rel="noopener"
->peaceiris/actions-hugo&lt;/a>，添加下面的内容到 &lt;em>&lt;strong>~/Blog/hugo-blog/.github/workfows/hugo.yaml&lt;/strong>&lt;/em> 文件，
+>peaceiris/actions-hugo&lt;/a>，添加下面的内容到 &lt;em>~/Blog/hugo-blog/.github/workfows/hugo.yaml&lt;/em> 文件，
 注意替换用户名和 &lt;code>secret&lt;/code> 的变量名&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy to Public Repo&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
@@ -74,7 +74,7 @@
 &lt;/h2>&lt;p>在 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
 >GitHub&lt;/a>下载最新的&lt;code>hugo_extended_0.xxx.x_linux-amd64.tar.gz&lt;/code>，然后解压：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xzvf hugo_extended_0.xxx.x_linux-amd64.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>移动解压得到的&lt;code>hugo&lt;/code>文件到 &lt;em>&lt;strong>/usr/local/bin&lt;/strong>&lt;/em>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>移动解压得到的&lt;code>hugo&lt;/code>文件到 &lt;em>/usr/local/bin&lt;/em>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo mv ./hugo /usr/local/bin
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看版本、验证安装&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo version
