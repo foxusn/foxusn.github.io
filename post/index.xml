@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 332C</title><link>https://foxusn.github.io/post/</link><description>Recent content in Posts on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 26 Jul 2025 04:37:33 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 容器运行 Windows</title><link>https://foxusn.github.io/docker-win/</link><pubDate>Sat, 26 Jul 2025 04:37:33 +0800</pubDate><guid>https://foxusn.github.io/docker-win/</guid><description>&lt;p>GitHub 项目：&lt;a class="link" href="https://github.com/dockur/windows" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 332C</title><link>https://foxusn.github.io/post/</link><description>Recent content in Posts on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 26 Jul 2025 23:13:38 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>QEMU/KVM 虚拟机安装</title><link>https://foxusn.github.io/qemu-kvm/</link><pubDate>Sat, 26 Jul 2025 23:13:38 +0800</pubDate><guid>https://foxusn.github.io/qemu-kvm/</guid><description>&lt;h2 id="虚拟化">虚拟化
+&lt;/h2>&lt;p>检查虚拟化支持情况：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">lscpu &lt;span class="p">|&lt;/span> grep -i virtualization
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">egrep -c &lt;span class="s1">&amp;#39;(vmx|svm)&amp;#39;&lt;/span> /proc/cpuinfo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qemu-system-x86_64 --version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">virsh --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>检查 KVM 模块是否加载：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">lsmod &lt;span class="p">|&lt;/span> grep kvm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>安装软件包组 &lt;code>@virtulization&lt;/code>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf group info virtualization
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf install @virtulization
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果需要可选组件：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf group install --with-optional virtualization
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="服务">服务
+&lt;/h2>&lt;p>启用 &lt;code>libvertd&lt;/code> 服务&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now libvirtd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="虚拟机">虚拟机
+&lt;/h2>&lt;h3 id="通过命令安装">通过命令安装
+&lt;/h3>&lt;p>查看支持的系统：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">osinfo-query os &lt;span class="p">|&lt;/span> grep archlinux
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>创建虚拟硬盘（可选）：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo qemu-img create -f qcow2 /var/lib/libvirt/images/arch-xxx.qcow2 &lt;span class="m">20480&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>安装：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo virt-install &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--name archlinux &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--description &lt;span class="s2">&amp;#34;Arch Linux&amp;#34;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--ram &lt;span class="m">4096&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--vcpus &lt;span class="m">2&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--cpu host &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--virt-type kvm &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--disk &lt;span class="nv">path&lt;/span>&lt;span class="o">=&lt;/span>/home/&lt;span class="nv">$USER&lt;/span>/VMs/arch-xxx.qcow2,size&lt;span class="o">=&lt;/span>20,bus&lt;span class="o">=&lt;/span>virtio &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--cdrom ~/Downloads/archlinux-xxx.iso &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--network &lt;span class="nv">network&lt;/span>&lt;span class="o">=&lt;/span>default,model&lt;span class="o">=&lt;/span>virtio &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--os-variant generic &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--graphics spice,listen&lt;span class="o">=&lt;/span>127.0.0.1 &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--noautoconsole
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用图形界面安装">使用图形界面安装
+&lt;/h3>&lt;p>运行 &lt;code>virt-manager&lt;/code>，未完待续。。。&lt;/p>
+&lt;h2 id="管理">管理
+&lt;/h2>&lt;p>查看、开启、关闭虚拟机&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo virsh list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo virsh start archlinux
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo virsh shutdown archlinux
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>创建快照。。。未完待续。。。&lt;/p></description></item><item><title>Docker 容器运行 Windows</title><link>https://foxusn.github.io/docker-win/</link><pubDate>Sat, 26 Jul 2025 04:37:33 +0800</pubDate><guid>https://foxusn.github.io/docker-win/</guid><description>&lt;p>GitHub 项目：&lt;a class="link" href="https://github.com/dockur/windows" target="_blank" rel="noopener"
 >dockur/windows&lt;/a>，Windows 镜像：&lt;a class="link" href="https://massgrave.dev/genuine-installation-media" target="_blank" rel="noopener"
 >massgrave&lt;/a>&lt;br>
 配置文件 &lt;em>docker-compose.yaml&lt;/em>：&lt;/p>
@@ -54,7 +98,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>安装 &lt;code>freerdp&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install freerdp
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>连接：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">xfreerdp /v:localhost /u:USERNAME /p:PSW /dynamic-resolution /scale-desktop:210 +clipboard /sound:sys:alsa
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">xfreerdp /v:localhost /u:USERNAME /p:PSW /dynamic-resolution /scale-desktop:200 +clipboard /sound:sys:alsa
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Arch Linux 安装预演</title><link>https://foxusn.github.io/arch-install/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/arch-install/</guid><description>&lt;h2 id="网络">网络
 &lt;/h2>&lt;p>查看网络情况、连接网络&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ip link
