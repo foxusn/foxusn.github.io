@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on 332C</title><link>https://foxusn.github.io/tags/linux/</link><description>Recent content in Linux on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 24 Jul 2025 22:26:48 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch Linux 安装预演</title><link>https://foxusn.github.io/p/arch-linux-%E5%AE%89%E8%A3%85%E9%A2%84%E6%BC%94/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/p/arch-linux-%E5%AE%89%E8%A3%85%E9%A2%84%E6%BC%94/</guid><description>&lt;h2 id="网络">网络
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on 332C</title><link>https://foxusn.github.io/tags/linux/</link><description>Recent content in Linux on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 24 Jul 2025 22:26:48 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch Linux 安装预演</title><link>https://foxusn.github.io/arch-install/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/arch-install/</guid><description>&lt;h2 id="网络">网络
 &lt;/h2>&lt;p>查看网络情况、连接网络&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ip link
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ip a
@@ -51,7 +51,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacstrap /mnt networkmanager vim neovim sudo amd-ucode bash-completion
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="未完待续">未完待续。。。
-&lt;/h2></description></item><item><title>Fedora 安装中文输入法</title><link>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2></description></item><item><title>Fedora 安装中文输入法</title><link>https://foxusn.github.io/fcitx5/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://foxusn.github.io/fcitx5/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;p>安装 Fcitx5 主程序和中文包：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf fcitx5 fcitx5-chinese-addons
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
@@ -60,7 +60,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="输入方案">输入方案
 &lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索输入方案（如：shuangpin），点击 &lt;strong>Add&lt;/strong> 添加&lt;/p>
 &lt;h2 id="gnome-扩展">Gnome 扩展
-&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</guid><description>&lt;h2 id="网络">网络
+&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/fedora-config/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/fedora-config/</guid><description>&lt;h2 id="网络">网络
 &lt;/h2>&lt;p>扫描、连接 Wi-Fi：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli dev wifi list
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmcli dev wifi rescan
@@ -85,6 +85,9 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf remove &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf list --installed &lt;span class="p">|&lt;/span> grep -i &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf autoremove
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf install --assumeno &amp;lt;pkg-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf &lt;span class="nb">history&lt;/span> list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf &lt;span class="nb">history&lt;/span> info &amp;lt;ID&amp;gt; &lt;span class="p">|&lt;/span> grep -i &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="引导">引导
 &lt;/h2>&lt;p>追加 &lt;code>GRUB_SAVEDEFAULT=true&lt;/code> 到 &lt;em>/etc/default/grub&lt;/em>：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;GRUB_SAVEDEFAULT=true&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee -a /etc/default/grub
@@ -163,7 +166,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="office">Office
 &lt;/h2>&lt;p>不需要 LibreOffice 可以卸载：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf remove libreoffice*
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH 相关内容</title><link>https://foxusn.github.io/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Mon, 28 Oct 2024 18:22:43 +0800</pubDate><guid>https://foxusn.github.io/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="安装">安装
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH 相关内容</title><link>https://foxusn.github.io/ssh-note/</link><pubDate>Mon, 28 Oct 2024 18:22:43 +0800</pubDate><guid>https://foxusn.github.io/ssh-note/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf list installed openssh
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">which ssh &lt;span class="c1"># 输出 /usr/sbin/ssh&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl status sshd

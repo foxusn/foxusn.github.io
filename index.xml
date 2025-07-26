@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>332C</title><link>https://foxusn.github.io/</link><description>Recent content on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 26 Jul 2025 04:37:33 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 容器运行 Windows 11</title><link>https://foxusn.github.io/p/docker-%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C-windows-11/</link><pubDate>Sat, 26 Jul 2025 04:37:33 +0800</pubDate><guid>https://foxusn.github.io/p/docker-%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C-windows-11/</guid><description>&lt;p>GitHub 项目地址：&lt;a class="link" href="https://github.com/dockur/windows" target="_blank" rel="noopener"
->dockur/windows&lt;/a>，配置文件 &lt;em>~/dkr-compose/win11-ltsc/docker-compose.yaml&lt;/em>：&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>332C</title><link>https://foxusn.github.io/</link><description>Recent content on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 26 Jul 2025 04:37:33 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 容器运行 Win11 LTSC</title><link>https://foxusn.github.io/docker-win/</link><pubDate>Sat, 26 Jul 2025 04:37:33 +0800</pubDate><guid>https://foxusn.github.io/docker-win/</guid><description>&lt;p>GitHub 项目：&lt;a class="link" href="https://github.com/dockur/windows" target="_blank" rel="noopener"
+>dockur/windows&lt;/a>，镜像下载：&lt;a class="link" href="https://massgrave.dev/windows_ltsc_links" target="_blank" rel="noopener"
+>massgrave&lt;/a>&lt;br>
+配置文件 &lt;em>docker-compose.yaml&lt;/em>：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">windows&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dockurr/windows&lt;/span>&lt;span class="w">
@@ -26,9 +28,34 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./lts11:/storage&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./shared:/data&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./lts11.iso:/boot.iso&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">no&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">stop_grace_period&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">2m&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Arch Linux 安装预演</title><link>https://foxusn.github.io/p/arch-linux-%E5%AE%89%E8%A3%85%E9%A2%84%E6%BC%94/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/p/arch-linux-%E5%AE%89%E8%A3%85%E9%A2%84%E6%BC%94/</guid><description>&lt;h2 id="网络">网络
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>目录结构：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="o">~&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">tree&lt;/span> &lt;span class="n">dkr&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">compose&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">dkr&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">compose&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">└──&lt;/span> &lt;span class="n">win11&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">ltsc&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">├──&lt;/span> &lt;span class="n">docker&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">compose&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">yaml&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">├──&lt;/span> &lt;span class="n">lts11&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">│&lt;/span>   &lt;span class="err">├──&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">img&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">│&lt;/span>   &lt;span class="err">├──&lt;/span> &lt;span class="n">windows&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">base&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">│&lt;/span>   &lt;span class="err">├──&lt;/span> &lt;span class="n">windows&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">boot&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">│&lt;/span>   &lt;span class="err">├──&lt;/span> &lt;span class="n">windows&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">mac&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">│&lt;/span>   &lt;span class="err">├──&lt;/span> &lt;span class="n">windows&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">rom&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">│&lt;/span>   &lt;span class="err">├──&lt;/span> &lt;span class="n">windows&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">vars&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">│&lt;/span>   &lt;span class="err">└──&lt;/span> &lt;span class="n">windows&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">ver&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">├──&lt;/span> &lt;span class="n">lts11&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">iso&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">└──&lt;/span> &lt;span class="n">shared&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">├──&lt;/span> &lt;span class="n">demo&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">md&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">└──&lt;/span> &lt;span class="n">readme&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">txt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">4&lt;/span> &lt;span class="n">directories&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">11&lt;/span> &lt;span class="n">files&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>安装、运行：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo docker compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>安装 &lt;code>freerdp&lt;/code>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install freerdp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>连接：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">xfreerdp /v:localhost /u:USERNAME /p:PSW /dynamic-resolution /scale-desktop:210 +clipboard /sound:sys:alsa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Arch Linux 安装预演</title><link>https://foxusn.github.io/arch-install/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/arch-install/</guid><description>&lt;h2 id="网络">网络
 &lt;/h2>&lt;p>查看网络情况、连接网络&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ip link
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ip a
@@ -81,7 +108,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacstrap /mnt networkmanager vim neovim sudo amd-ucode bash-completion
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="未完待续">未完待续。。。
-&lt;/h2></description></item><item><title>Go Quick Note</title><link>https://foxusn.github.io/p/go-quick-note/</link><pubDate>Thu, 24 Jul 2025 21:55:04 +0800</pubDate><guid>https://foxusn.github.io/p/go-quick-note/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2></description></item><item><title>Go Quick Note</title><link>https://foxusn.github.io/go-quick/</link><pubDate>Thu, 24 Jul 2025 21:55:04 +0800</pubDate><guid>https://foxusn.github.io/go-quick/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;p>安装 &lt;code>golang&lt;/code> 包、查看版本&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install golang
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go version
@@ -106,7 +133,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># --- OR ---&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go build hello.go
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./hello
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora 安装中文输入法</title><link>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h2 id="安装">安装
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora 安装中文输入法</title><link>https://foxusn.github.io/fcitx5/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://foxusn.github.io/fcitx5/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;p>安装 Fcitx5 主程序和中文包：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf fcitx5 fcitx5-chinese-addons
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
@@ -115,7 +142,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="输入方案">输入方案
 &lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索输入方案（如：shuangpin），点击 &lt;strong>Add&lt;/strong> 添加&lt;/p>
 &lt;h2 id="gnome-扩展">Gnome 扩展
-&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>Fedora 安装 Samba</title><link>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85-samba/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-%E5%AE%89%E8%A3%85-samba/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item><item><title>Fedora 安装 Samba</title><link>https://foxusn.github.io/samba-fedora/</link><pubDate>Thu, 17 Apr 2025 02:47:51 +0800</pubDate><guid>https://foxusn.github.io/samba-fedora/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install samba samba-client
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="共享文件夹">共享文件夹
 &lt;/h2>&lt;p>创建文件夹、赋权&lt;/p>
@@ -150,7 +177,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl status smb nmb
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="连接">连接
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">smb://192.168.XXX.XXX/Shared
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/p/fedora-linux-%E5%BC%80%E8%8D%92/</guid><description>&lt;h2 id="网络">网络
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/fedora-config/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/fedora-config/</guid><description>&lt;h2 id="网络">网络
 &lt;/h2>&lt;p>扫描、连接 Wi-Fi：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli dev wifi list
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmcli dev wifi rescan
@@ -175,6 +202,9 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf remove &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf list --installed &lt;span class="p">|&lt;/span> grep -i &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf autoremove
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf install --assumeno &amp;lt;pkg-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf &lt;span class="nb">history&lt;/span> list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf &lt;span class="nb">history&lt;/span> info &amp;lt;ID&amp;gt; &lt;span class="p">|&lt;/span> grep -i &amp;lt;pkg-name&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="引导">引导
 &lt;/h2>&lt;p>追加 &lt;code>GRUB_SAVEDEFAULT=true&lt;/code> 到 &lt;em>/etc/default/grub&lt;/em>：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;GRUB_SAVEDEFAULT=true&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee -a /etc/default/grub
@@ -253,7 +283,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="office">Office
 &lt;/h2>&lt;p>不需要 LibreOffice 可以卸载：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf remove libreoffice*
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Hugo 博客部署（创作中）</title><link>https://foxusn.github.io/p/hugo-%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%9B%E4%BD%9C%E4%B8%AD/</link><pubDate>Sun, 06 Apr 2025 16:15:10 +0800</pubDate><guid>https://foxusn.github.io/p/hugo-%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%9B%E4%BD%9C%E4%B8%AD/</guid><description>&lt;h2 id="密钥对">密钥对
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Hugo 博客部署（创作中）</title><link>https://foxusn.github.io/hugo-deploy/</link><pubDate>Sun, 06 Apr 2025 16:15:10 +0800</pubDate><guid>https://foxusn.github.io/hugo-deploy/</guid><description>&lt;h2 id="密钥对">密钥对
 &lt;/h2>&lt;p>生成两个&lt;code>ed25519&lt;/code>类型的密钥对&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -f ~/.ssh/github_ssh -C &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -f ~/.ssh/hugo_deploy -C &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -N &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
@@ -325,7 +355,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:username/hugo-blog.git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="排障">排障
-&lt;/h2>&lt;p>到 Private 仓库查看 Actions 的情况，根据报错内容查找资料、解决问题&lt;/p></description></item><item><title>Hugo 博客搭建</title><link>https://foxusn.github.io/p/hugo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link><pubDate>Sun, 06 Apr 2025 15:51:14 +0800</pubDate><guid>https://foxusn.github.io/p/hugo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid><description>&lt;h2 id="安装">安装
+&lt;/h2>&lt;p>到 Private 仓库查看 Actions 的情况，根据报错内容查找资料、解决问题&lt;/p></description></item><item><title>Hugo 博客搭建</title><link>https://foxusn.github.io/hugo-blog/</link><pubDate>Sun, 06 Apr 2025 15:51:14 +0800</pubDate><guid>https://foxusn.github.io/hugo-blog/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;p>在 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
 >GitHub&lt;/a>下载最新的&lt;code>hugo_extended_0.xxx.x_linux-amd64.tar.gz&lt;/code>，然后解压：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xzvf hugo_extended_0.xxx.x_linux-amd64.tar.gz
@@ -346,7 +376,7 @@
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/stack
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>新建博文&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new content content/post/first-blog.md
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH 相关内容</title><link>https://foxusn.github.io/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Mon, 28 Oct 2024 18:22:43 +0800</pubDate><guid>https://foxusn.github.io/p/ssh-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="安装">安装
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SSH 相关内容</title><link>https://foxusn.github.io/ssh-note/</link><pubDate>Mon, 28 Oct 2024 18:22:43 +0800</pubDate><guid>https://foxusn.github.io/ssh-note/</guid><description>&lt;h2 id="安装">安装
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf list installed openssh
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">which ssh &lt;span class="c1"># 输出 /usr/sbin/ssh&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl status sshd
@@ -359,7 +389,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="测试">测试
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-add -l &lt;span class="c1"># 检查本地 SSH key&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试 SSH 连接&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Git 相关内容</title><link>https://foxusn.github.io/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</link><pubDate>Wed, 23 Oct 2024 01:37:07 +0800</pubDate><guid>https://foxusn.github.io/p/git-%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</guid><description>&lt;h2 id="git-配置">Git 配置
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Git 相关内容</title><link>https://foxusn.github.io/git-note/</link><pubDate>Wed, 23 Oct 2024 01:37:07 +0800</pubDate><guid>https://foxusn.github.io/git-note/</guid><description>&lt;h2 id="git-配置">Git 配置
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --list &lt;span class="c1"># 查看当前仓库 git 配置&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global --list &lt;span class="c1"># 查看全局 git 配置&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --get init.defaultBranch &lt;span class="c1"># 查看默认分支名&lt;/span>
@@ -375,6 +405,11 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com &lt;span class="c1"># 测试连接，注意输出的仓库名&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git pull origin main
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="远程仓库">远程仓库
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git remote -v
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:username/repo.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote set-url origin git@github.com:username/repo.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote remove origin
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>归档</title><link>https://foxusn.github.io/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://foxusn.github.io/archives/</guid><description/></item><item><title>Links</title><link>https://foxusn.github.io/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://foxusn.github.io/links/</guid><description>&lt;p>To use this feature, add &lt;code>links&lt;/code> section to frontmatter.&lt;/p>
 &lt;p>This page&amp;rsquo;s frontmatter:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -386,4 +421,4 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://www.typescriptlang.org&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ts-logo-128.jpg&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>image&lt;/code> field accepts both local and external images.&lt;/p></description></item><item><title>关于</title><link>https://foxusn.github.io/%E5%85%B3%E4%BA%8E/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://foxusn.github.io/%E5%85%B3%E4%BA%8E/</guid><description>&lt;!-- This is a test page for i18n support. --></description></item><item><title>搜索</title><link>https://foxusn.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://foxusn.github.io/search/</guid><description/></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>image&lt;/code> field accepts both local and external images.&lt;/p></description></item><item><title>关于</title><link>https://foxusn.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://foxusn.github.io/about/</guid><description>&lt;!-- This is a test page for i18n support. --></description></item><item><title>搜索</title><link>https://foxusn.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://foxusn.github.io/search/</guid><description/></item></channel></rss>
