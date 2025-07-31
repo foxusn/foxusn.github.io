@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 332C</title><link>https://foxusn.github.io/post/</link><description>Recent content in Posts on 332C</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 28 Jul 2025 00:09:03 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>QEMU/KVM 虚拟机安装</title><link>https://foxusn.github.io/qemu-kvm/</link><pubDate>Sat, 26 Jul 2025 23:13:38 +0800</pubDate><guid>https://foxusn.github.io/qemu-kvm/</guid><description>&lt;h2 id="虚拟化">虚拟化
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on John's Blog</title><link>https://foxusn.github.io/post/</link><description>Recent content in Posts on John's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 26 Jul 2025 23:13:38 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>QEMU/KVM 虚拟机安装</title><link>https://foxusn.github.io/qemu-kvm/</link><pubDate>Sat, 26 Jul 2025 23:13:38 +0800</pubDate><guid>https://foxusn.github.io/qemu-kvm/</guid><description>&lt;h2 id="虚拟化">虚拟化
 &lt;/h2>&lt;p>检查虚拟化支持情况：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">lscpu &lt;span class="p">|&lt;/span> grep -i virtualization
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">egrep -c &lt;span class="s1">&amp;#39;(vmx|svm)&amp;#39;&lt;/span> /proc/cpuinfo
@@ -99,7 +99,12 @@
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install freerdp
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>连接：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">xfreerdp /v:localhost /u:USERNAME /p:PSW /dynamic-resolution /scale-desktop:200 +clipboard /sound:sys:alsa
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Arch Linux 安装预演</title><link>https://foxusn.github.io/arch-install/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/arch-install/</guid><description>&lt;h2 id="网络">网络
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Arch Linux 安装（困难模式）</title><link>https://foxusn.github.io/arch-install/</link><pubDate>Thu, 24 Jul 2025 22:26:48 +0800</pubDate><guid>https://foxusn.github.io/arch-install/</guid><description>&lt;h2 id="字体">字体
+&lt;/h2>&lt;p>设置控制台字体为：Terminus font, 132(column), bold&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">showconsolefont
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">stty size
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">setfont ter-132b
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="网络">网络
 &lt;/h2>&lt;p>查看网络情况、连接网络&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ip link
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ip a
