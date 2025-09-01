@@ -1,107 +1,107 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fedora on John's Blog</title><link>https://foxusn.github.io/tags/fedora/</link><description>Recent content in Fedora on John's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Apr 2025 10:15:59 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/fedora-config/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/fedora-config/</guid><description>&lt;h2 id="网络">网络
-&lt;/h2>&lt;p>扫描、连接 Wi-Fi：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli dev wifi list
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmcli dev wifi rescan
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmcli device wifi connect &lt;span class="s2">&amp;#34;SSID&amp;#34;&lt;/span> password &lt;span class="s2">&amp;#34;PSW&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmcli connection show --active
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="主机名">主机名
-&lt;/h2>&lt;p>查看、修改主机名&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hostnamectl
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo hostnamectl set-hostname &amp;lt;new-hostname&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="包管理">包管理
-&lt;/h2>&lt;p>追加 &lt;code>defaultyes=True&lt;/code> 到 &lt;em>/etc/dnf/dnf.conf&lt;/em>：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;defaultyes=True&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee -a /etc/dnf/dnf.conf
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>更新软件包：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf check-update
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf upgrade
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>按需安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install bat fastfetch fcitx5 fcitx5-chinese-addons freerdp golang libavcodec-freeworld mpv neovim samba samba-client tealdeer
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>常用 &lt;code>dnf&lt;/code> 命令：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf search &amp;lt;pkg-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf info &amp;lt;pkg-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf install &amp;lt;pkg-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf remove &amp;lt;pkg-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf list --installed &lt;span class="p">|&lt;/span> grep -i &amp;lt;pkg-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf autoremove
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf install --assumeno &amp;lt;pkg-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf &lt;span class="nb">history&lt;/span> list
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf &lt;span class="nb">history&lt;/span> info &amp;lt;ID&amp;gt; &lt;span class="p">|&lt;/span> grep -i &amp;lt;pkg-name&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="引导">引导
-&lt;/h2>&lt;p>追加 &lt;code>GRUB_SAVEDEFAULT=true&lt;/code> 到 &lt;em>/etc/default/grub&lt;/em>：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;GRUB_SAVEDEFAULT=true&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee -a /etc/default/grub
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重新生成 GRUB2 引导配置文件并将生成的配置写入到 &lt;em>/boot/grub2/grub.cfg&lt;/em>：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="别名">别名
-&lt;/h2>&lt;p>创建 &lt;em>&lt;strong>~/.myaliases&lt;/strong>&lt;/em> 文件，按需添加别名：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ~/.myaliases&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> ..&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;cd ..&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> ...&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;cd ../..&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> ....&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;cd ../../..&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">l&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;ls -CF&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">la&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;ls -A&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">c&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;clear&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">h&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;history&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">v&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;nvim&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">fk&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;sudo $(fc -ln -1)&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">hg&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;history | grep&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">vin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;nvim --noplugin&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">catbrc&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;cat ~/.bashrc&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">sobrc&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;source ~/.bashrc&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">vibrc&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;nvim ~/.bashrc&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">extar&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;tar -xzvf&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">sdupg&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;sudo dnf upgrade&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">trash&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;mv -t ~/.local/share/Trash/files&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Logout, Reboot, Suspend, Poweroff&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">lgout&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;gnome-session-quit --logout --no-prompt&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">reboot&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;systemctl reboot&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">ssp&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;systemctl suspend&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">pwoff&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;systemctl poweroff&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Git&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">gst&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;git status&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">gad&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;git add .&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">gcm&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;git commit -m&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">gpush&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;git push&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">function&lt;/span> gacp&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git add -A
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git commit -m &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git push
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># mpv&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vv&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> nohup mpv --really-quiet &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$@&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &amp;gt;/dev/null 2&amp;gt;&lt;span class="p">&amp;amp;&lt;/span>&lt;span class="m">1&lt;/span> &lt;span class="p">&amp;amp;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># xfreerdp&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">rdpwin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;nohup xfreerdp /v:localhost /u:USERNAME /p:PSW /dynamic-r esolution /scale-desktop:210 +clipboard /sound:sys:alsa &amp;gt; ~/.xfreerd p.log 2&amp;gt;&amp;amp;1 &amp;amp;&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="bash">Bash
-&lt;/h2>&lt;p>追加内容到 &lt;em>~/.bashrc&lt;/em>：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat &amp;gt;&amp;gt; ~/.bashrc &lt;span class="s">&amp;lt;&amp;lt; &amp;#39;EOF&amp;#39;
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">bind &amp;#34;set completion-ignore-case on&amp;#34;
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">export HISTCONTROL=erasedups
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">export HISTIGNORE=&amp;#34;&amp;amp;:h:l:l.:la:ll:ls:cd:pwd:c:v:..:...:....&amp;#34;
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"># Aliases
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">if [ -f ~/.myaliases ]; then
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> source ~/.myaliases
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">fi
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>应用修改：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.bashrc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="flatpak">Flatpak
-&lt;/h2>&lt;p>常用 &lt;code>flatpak&lt;/code> 命令：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">flatpak install flathub &amp;lt;pkg-id&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak search &amp;lt;keyword&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak list --app
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak uninstall &amp;lt;pkg-id&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak remote-ls --updates
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flatpak update &amp;lt;pkg-id&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="rpm-fusion">RPM Fusion
-&lt;/h2>&lt;p>启用 RPM Fusion：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-&lt;span class="k">$(&lt;/span>rpm -E %fedora&lt;span class="k">)&lt;/span>.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-&lt;span class="k">$(&lt;/span>rpm -E %fedora&lt;span class="k">)&lt;/span>.noarch.rpm
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="office">Office
-&lt;/h2>&lt;p>不需要 LibreOffice 可以卸载：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf remove libreoffice*
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fedora on John's Blog</title><link>https://foxusn.github.io/tags/fedora/</link><description>Recent content in Fedora on John's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Apr 2025 10:15:59 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora Linux 开荒</title><link>https://foxusn.github.io/fedora-config/</link><pubDate>Thu, 10 Apr 2025 10:15:59 +0800</pubDate><guid>https://foxusn.github.io/fedora-config/</guid><description>&lt;h2 id="网络"&gt;网络
+&lt;/h2&gt;&lt;p&gt;扫描、连接 Wi-Fi：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmcli dev wifi list
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmcli dev wifi rescan
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmcli device wifi connect &lt;span class="s2"&gt;&amp;#34;SSID&amp;#34;&lt;/span&gt; password &lt;span class="s2"&gt;&amp;#34;PSW&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmcli connection show --active
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="主机名"&gt;主机名
+&lt;/h2&gt;&lt;p&gt;查看、修改主机名&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hostnamectl
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo hostnamectl set-hostname &amp;lt;new-hostname&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="包管理"&gt;包管理
+&lt;/h2&gt;&lt;p&gt;追加 &lt;code&gt;defaultyes=True&lt;/code&gt; 到 &lt;em&gt;/etc/dnf/dnf.conf&lt;/em&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;defaultyes=True&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee -a /etc/dnf/dnf.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新软件包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf check-update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;按需安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install bat fastfetch fcitx5 fcitx5-chinese-addons freerdp golang libavcodec-freeworld mpv neovim samba samba-client tealdeer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;常用 &lt;code&gt;dnf&lt;/code&gt; 命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf search &amp;lt;pkg-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf info &amp;lt;pkg-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install &amp;lt;pkg-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf remove &amp;lt;pkg-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf list --installed &lt;span class="p"&gt;|&lt;/span&gt; grep -i &amp;lt;pkg-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf install --assumeno &amp;lt;pkg-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf &lt;span class="nb"&gt;history&lt;/span&gt; list
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf &lt;span class="nb"&gt;history&lt;/span&gt; info &amp;lt;ID&amp;gt; &lt;span class="p"&gt;|&lt;/span&gt; grep -i &amp;lt;pkg-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="引导"&gt;引导
+&lt;/h2&gt;&lt;p&gt;追加 &lt;code&gt;GRUB_SAVEDEFAULT=true&lt;/code&gt; 到 &lt;em&gt;/etc/default/grub&lt;/em&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;GRUB_SAVEDEFAULT=true&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee -a /etc/default/grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重新生成 GRUB2 引导配置文件并将生成的配置写入到 &lt;em&gt;/boot/grub2/grub.cfg&lt;/em&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="别名"&gt;别名
+&lt;/h2&gt;&lt;p&gt;创建 &lt;em&gt;&lt;strong&gt;~/.myaliases&lt;/strong&gt;&lt;/em&gt; 文件，按需添加别名：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# ~/.myaliases&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; ..&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cd ..&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; ...&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cd ../..&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; ....&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cd ../../..&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;l&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ls -CF&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;la&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ls -A&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;clear&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;history&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;v&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;nvim&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;fk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sudo $(fc -ln -1)&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;hg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;history | grep&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;vin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;nvim --noplugin&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;catbrc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cat ~/.bashrc&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;sobrc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;source ~/.bashrc&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;vibrc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;nvim ~/.bashrc&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;extar&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;tar -xzvf&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;sdupg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sudo dnf upgrade&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;trash&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mv -t ~/.local/share/Trash/files&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Logout, Reboot, Suspend, Poweroff&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;lgout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gnome-session-quit --logout --no-prompt&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;reboot&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;systemctl reboot&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;ssp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;systemctl suspend&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;pwoff&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;systemctl poweroff&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;gst&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;git status&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;gad&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;git add .&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;gcm&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;git commit -m&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;gpush&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;git push&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;function&lt;/span&gt; gacp&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; git add -A
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; git commit -m &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; git push
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# mpv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vv&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; nohup mpv --really-quiet &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt; &amp;gt;/dev/null 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# xfreerdp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;rdpwin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;nohup xfreerdp /v:localhost /u:USERNAME /p:PSW /dynamic-r esolution /scale-desktop:210 +clipboard /sound:sys:alsa &amp;gt; ~/.xfreerd p.log 2&amp;gt;&amp;amp;1 &amp;amp;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="bash"&gt;Bash
+&lt;/h2&gt;&lt;p&gt;追加内容到 &lt;em&gt;~/.bashrc&lt;/em&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat &amp;gt;&amp;gt; ~/.bashrc &lt;span class="s"&gt;&amp;lt;&amp;lt; &amp;#39;EOF&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;bind &amp;#34;set completion-ignore-case on&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;export HISTCONTROL=erasedups
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;export HISTIGNORE=&amp;#34;&amp;amp;:h:l:l.:la:ll:ls:cd:pwd:c:v:..:...:....&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;# Aliases
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;if [ -f ~/.myaliases ]; then
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; source ~/.myaliases
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;fi
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;应用修改：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="flatpak"&gt;Flatpak
+&lt;/h2&gt;&lt;p&gt;常用 &lt;code&gt;flatpak&lt;/code&gt; 命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;flatpak install flathub &amp;lt;pkg-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;flatpak search &amp;lt;keyword&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;flatpak list --app
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;flatpak uninstall &amp;lt;pkg-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;flatpak remote-ls --updates
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;flatpak update &amp;lt;pkg-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="rpm-fusion"&gt;RPM Fusion
+&lt;/h2&gt;&lt;p&gt;启用 RPM Fusion：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-&lt;span class="k"&gt;$(&lt;/span&gt;rpm -E %fedora&lt;span class="k"&gt;)&lt;/span&gt;.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-&lt;span class="k"&gt;$(&lt;/span&gt;rpm -E %fedora&lt;span class="k"&gt;)&lt;/span&gt;.noarch.rpm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="office"&gt;Office
+&lt;/h2&gt;&lt;p&gt;不需要 LibreOffice 可以卸载：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf remove libreoffice*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

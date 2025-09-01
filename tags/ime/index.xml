@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IME on John's Blog</title><link>https://foxusn.github.io/tags/ime/</link><description>Recent content in IME on John's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 22 Jul 2025 21:44:58 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/ime/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora 安装中文输入法</title><link>https://foxusn.github.io/fcitx5/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://foxusn.github.io/fcitx5/</guid><description>&lt;h2 id="安装">安装
-&lt;/h2>&lt;p>安装 Fcitx5 主程序和中文包：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf fcitx5 fcitx5-chinese-addons
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="开机启动">开机启动
-&lt;/h2>&lt;p>设置 Fcitx5 随系统启动，然后重启&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="输入方案">输入方案
-&lt;/h2>&lt;p>打开 &lt;strong>Fcitx 5 Configuration&lt;/strong>，搜索输入方案（如：shuangpin），点击 &lt;strong>Add&lt;/strong> 添加&lt;/p>
-&lt;h2 id="gnome-扩展">Gnome 扩展
-&lt;/h2>&lt;p>安装 Gnome 扩展 &lt;strong>Input Method Panel&lt;/strong> 以设置候选字的字体和大小 🔚&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IME on John's Blog</title><link>https://foxusn.github.io/tags/ime/</link><description>Recent content in IME on John's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 22 Jul 2025 21:44:58 +0800</lastBuildDate><atom:link href="https://foxusn.github.io/tags/ime/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora 安装中文输入法</title><link>https://foxusn.github.io/fcitx5/</link><pubDate>Tue, 22 Jul 2025 21:44:58 +0800</pubDate><guid>https://foxusn.github.io/fcitx5/</guid><description>&lt;h2 id="安装"&gt;安装
+&lt;/h2&gt;&lt;p&gt;安装 Fcitx5 主程序和中文包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf fcitx5 fcitx5-chinese-addons
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="开机启动"&gt;开机启动
+&lt;/h2&gt;&lt;p&gt;设置 Fcitx5 随系统启动，然后重启&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="输入方案"&gt;输入方案
+&lt;/h2&gt;&lt;p&gt;打开 &lt;strong&gt;Fcitx 5 Configuration&lt;/strong&gt;，搜索输入方案（如：shuangpin），点击 &lt;strong&gt;Add&lt;/strong&gt; 添加&lt;/p&gt;
+&lt;h2 id="gnome-扩展"&gt;Gnome 扩展
+&lt;/h2&gt;&lt;p&gt;安装 Gnome 扩展 &lt;strong&gt;Input Method Panel&lt;/strong&gt; 以设置候选字的字体和大小 🔚&lt;/p&gt;</description></item></channel></rss>
